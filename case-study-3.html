@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Case No. 03 — Halo &amp; Co: Rebuilding Growth Without Buying Ads</title>
+<meta name="description" content="A 14-week investigation into a category-leading SaaS that had stopped compounding. The loop we ended up shipping." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..800,0..100&family=Inter:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--paper:#f1e8d6;--paper-2:#ece2cd;--ink:#1f1c19;--ink-soft:#3a342e;--muted:#7a6f60;--rule:#cdbfa3;--maroon:#8a1e2b;--maroon-deep:#5e1019;--gold:#b8893c;--rose:#c98686;--shadow:0 30px 60px -30px rgba(60,30,15,.35),0 8px 20px -10px rgba(60,30,15,.18)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;background-image:radial-gradient(rgba(80,55,30,.05) 1px,transparent 1px),radial-gradient(rgba(80,55,30,.04) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px}
+::selection{background:var(--maroon);color:var(--paper)}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-.01em;color:var(--ink)}
+.script{font-family:"Caveat",cursive}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+@media (max-width:640px){.wrap{padding:0 20px}}
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(8px);background:color-mix(in oklab,var(--paper) 86%,transparent);border-bottom:1px solid transparent;transition:border-color .3s ease}
+.nav.scrolled{border-bottom-color:var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-size:20px;font-weight:500}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--maroon)}
+.nav ul{display:flex;gap:28px;list-style:none}
+.nav a{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--maroon);transform:scaleX(0);transform-origin:right;transition:transform .35s ease}
+.nav a:hover{color:var(--maroon)}.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+@media (max-width:640px){.nav ul{gap:14px}.nav a{font-size:11px;letter-spacing:.12em}}
+
+/* RHYTHM VARIANT — notebook / dossier layout */
+.dossier{padding:48px 0 0}
+.crumb{display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);padding:14px 0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+
+.dossier-top{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;padding:72px 0 48px;align-items:center}
+.dossier-top .kicker{font-family:"Fraunces",serif;font-style:italic;color:var(--maroon);font-size:22px;margin-bottom:18px}
+.dossier-top h1{font-size:clamp(52px,8vw,118px);letter-spacing:-.035em;font-weight:400;line-height:.95}
+.dossier-top h1 em{font-style:italic;color:var(--maroon);font-weight:300}
+.dossier-top .lede{font-family:"Fraunces",serif;font-size:clamp(20px,2vw,26px);line-height:1.4;color:var(--ink-soft);margin-top:28px;max-width:42ch;font-weight:300}
+.dossier-top .lede em{color:var(--maroon);font-style:italic}
+.dossier-top .byline{display:flex;flex-wrap:wrap;gap:24px;margin-top:28px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--rule);padding-top:18px}
+.dossier-top .byline strong{display:block;color:var(--ink);font-weight:600;font-size:11px;letter-spacing:.22em;margin-bottom:4px}
+.diagram{
+  aspect-ratio:1/1.05;background:var(--paper-2);border:1px solid var(--ink);position:relative;overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.diagram .stamp{position:absolute;top:14px;right:14px;width:84px;height:84px;border:2px solid var(--maroon);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Fraunces",serif;font-size:11px;letter-spacing:.14em;color:var(--maroon);text-transform:uppercase;transform:rotate(-8deg);background:var(--paper)}
+@media (max-width:900px){.dossier-top{grid-template-columns:1fr;gap:40px}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:36px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.stats .s b{display:block;font-family:"Fraunces",serif;font-size:54px;color:var(--maroon);font-weight:500;letter-spacing:-.03em;line-height:1}
+.stats .s span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-top:8px;display:block}
+@media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* chapters as notebook entries */
+.chapter{padding:96px 0;border-bottom:1px solid var(--rule);position:relative}
+.chapter-head{display:grid;grid-template-columns:1fr 2.4fr;gap:60px;align-items:start;margin-bottom:48px}
+.chapter-head .num{font-family:"Fraunces",serif;font-style:italic;color:var(--maroon);font-size:18px}
+.chapter-head .num small{display:block;font-style:normal;font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.chapter-head h2{font-size:clamp(38px,5.4vw,72px);letter-spacing:-.025em;font-weight:400}
+.chapter-head h2 em{font-style:italic;color:var(--maroon);font-weight:300}
+.chapter-body{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start}
+.chapter-body .meta-col{font-size:13px;color:var(--muted);line-height:1.7}
+.chapter-body .meta-col strong{display:block;color:var(--ink);font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:6px}
+.prose p{font-size:19px;line-height:1.7;color:var(--ink-soft);margin-bottom:22px}
+.prose p.first::first-letter{font-family:"Fraunces",serif;font-size:74px;float:left;line-height:.85;padding:6px 12px 0 0;color:var(--maroon);font-weight:500}
+.prose blockquote{font-family:"Fraunces",serif;font-style:italic;font-size:28px;line-height:1.35;color:var(--ink);border-left:3px solid var(--maroon);padding:6px 0 6px 24px;margin:28px 0}
+.prose ul{margin:18px 0 24px 22px;color:var(--ink-soft)}.prose li{margin-bottom:10px}
+@media (max-width:900px){.chapter-head,.chapter-body{grid-template-columns:1fr;gap:18px}}
+
+/* notebook hypothesis cards — signature moment */
+.hyp{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:32px 0 8px}
+.hyp .card{
+  background:var(--paper-2);border:1px solid var(--ink);padding:24px;position:relative;
+  transition:transform .4s ease,box-shadow .4s ease;
+}
+.hyp .card:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:var(--shadow)}
+.hyp .card .tag{font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--maroon);margin-bottom:10px}
+.hyp .card h4{font-family:"Fraunces",serif;font-size:22px;font-weight:500;letter-spacing:-.01em;margin-bottom:8px;line-height:1.15}
+.hyp .card p{font-size:14px;color:var(--ink-soft);line-height:1.55}
+.hyp .card .verdict{margin-top:14px;padding-top:14px;border-top:1px dashed var(--rule);font-family:"Caveat",cursive;font-size:20px;color:var(--maroon)}
+.hyp .card.fail .verdict{color:var(--ink-soft);text-decoration:line-through}
+@media (max-width:760px){.hyp{grid-template-columns:1fr}}
+
+/* before/after numbers */
+.compare{display:grid;grid-template-columns:1fr auto 1fr;gap:32px;align-items:center;padding:48px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:32px 0}
+.compare .col{text-align:center}
+.compare .col .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:12px}
+.compare .col .v{font-family:"Fraunces",serif;font-size:clamp(40px,6vw,72px);font-weight:400;letter-spacing:-.03em;line-height:1}
+.compare .col.after .v{color:var(--maroon)}
+.compare .arrow{font-family:"Fraunces",serif;font-size:36px;color:var(--maroon);font-style:italic}
+@media (max-width:640px){.compare{grid-template-columns:1fr}.compare .arrow{transform:rotate(90deg)}}
+
+/* pull */
+.pull{margin:0;padding:80px 32px;background:var(--ink);color:var(--paper);text-align:center}
+.pull p{font-family:"Fraunces",serif;font-size:clamp(28px,3.6vw,46px);font-weight:300;line-height:1.25;max-width:26ch;margin:0 auto;letter-spacing:-.01em}
+.pull p em{color:var(--rose);font-style:italic}
+
+/* end credits */
+.credits{padding:96px 0 64px}
+.credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.credits h4{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--maroon);font-weight:600;font-family:"Inter",sans-serif;margin-bottom:14px}
+.credits ul{list-style:none;border-top:1px solid var(--rule)}
+.credits li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-soft)}
+.credits li strong{font-family:"Fraunces",serif;color:var(--ink);font-weight:500}
+@media (max-width:760px){.credits-grid{grid-template-columns:1fr}}
+
+.between{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:64px 0 32px}
+.between a{border:1px solid var(--ink);padding:28px;display:block;background:var(--paper-2);transition:background .3s ease,color .3s ease,transform .3s ease}
+.between a:hover{background:var(--ink);color:var(--paper);transform:translateY(-4px)}
+.between .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.between a:hover .lbl{color:var(--rose)}
+.between h3{font-family:"Fraunces",serif;font-size:26px;font-weight:500}
+.between .next{text-align:right}
+@media (max-width:640px){.between{grid-template-columns:1fr}.between .next{text-align:left}}
+
+footer{background:var(--ink);color:var(--paper);padding:80px 0 40px}
+footer .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:60px;margin-bottom:60px}
+footer h2{color:var(--paper);font-size:clamp(36px,5vw,60px);font-weight:400;letter-spacing:-.025em;line-height:1.05}
+footer h2 em{font-style:italic;color:var(--rose);font-weight:300}
+footer h4{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:14px;font-weight:600;font-family:"Inter",sans-serif}
+footer a,footer p{color:var(--paper);opacity:.9;font-size:15px;display:block;margin-bottom:10px;transition:color .3s ease,opacity .3s ease}
+footer a:hover{color:var(--rose);opacity:1}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(241,232,214,.18);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,232,214,.6)}
+.totop{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(241,232,214,.3);padding:10px 16px;border-radius:999px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;transition:background .3s ease,color .3s ease}
+.totop:hover{background:var(--rose);color:var(--ink);border-color:var(--rose)}
+@media (max-width:760px){footer .grid{grid-template-columns:1fr;gap:32px}.foot-bottom{flex-direction:column;gap:14px;text-align:center}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+.page-turn{position:fixed;inset:0;background:var(--ink);z-index:200;transform-origin:left center;animation:turn 1.1s cubic-bezier(.7,.0,.2,1) forwards;pointer-events:none}
+@keyframes turn{0%{transform:scaleX(1)}60%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--maroon);width:0;z-index:100;transition:width .1s linear}
+.note{font-family:"Caveat",cursive;color:var(--maroon);font-size:22px}
+</style>
+</head>
+<body>
+<div class="page-turn" aria-hidden="true"></div>
+<div class="progress" id="progress"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span> Maya Okafor</a>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+<section class="wrap dossier">
+  <div class="crumb">
+    <a href="index.html">← Back to The Quarterly</a>
+    <span>Case No. 03 · The Features</span>
+    <span>Issue 03 — 2026</span>
+  </div>
+
+  <div class="dossier-top">
+    <div>
+      <div class="kicker reveal">SaaS · Series B · 2024</div>
+      <h1 class="reveal d1">Rebuilding a growth engine <em>without buying ads.</em></h1>
+      <p class="lede reveal d2">A fourteen-week investigation into why a category-leading product had stopped compounding — and the embarrassingly simple loop that finally fixed it.</p>
+      <div class="byline reveal d3">
+        <div><strong>Client</strong>Halo &amp; Co</div>
+        <div><strong>Role</strong>Interim Head of Growth</div>
+        <div><strong>Team</strong>2 PMs, 1 engineer, me</div>
+        <div><strong>Timeframe</strong>14 weeks, end-to-end</div>
+      </div>
+    </div>
+    <div class="diagram reveal d2" id="diagram">
+      <span class="stamp">Case<br/>No. 03</span>
+    </div>
+  </div>
+
+  <div class="stats reveal">
+    <div class="s"><b>+186%</b><span>Activated users / week</span></div>
+    <div class="s"><b>2.7×</b><span>K-factor on the new loop</span></div>
+    <div class="s"><b>−$0</b><span>Paid budget added</span></div>
+    <div class="s"><b>3</b><span>Channels retired with no impact</span></div>
+  </div>
+</section>
+
+<!-- Opening -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="num"><small>Chapter I</small>Opening<br/>Scene</div>
+      <h2>A board deck arrives. The growth chart has <em>flattened politely.</em></h2>
+    </div>
+    <div class="chapter-body">
+      <aside class="meta-col reveal">
+        <strong>Setting</strong>
+        Halo &amp; Co — a Series B productivity tool with 180,000 active users and a quarter of polite growth.
+        <strong style="margin-top:18px">Stakes</strong>
+        A planned C round priced on the previous compounding rate. Either the curve bent up again, or the round priced down.
+      </aside>
+      <div class="prose reveal d1">
+        <p class="first">When a SaaS company calls a brand person instead of a growth person, it usually means they suspect the problem is not arithmetic. Halo's CEO had spent six months hiring against the chart and four months watching the chart not move. She didn't need another paid acquisition lead. She needed someone willing to question the entire story the company was telling itself.</p>
+        <blockquote>"We don't have a growth problem. We have a meaning problem. And it's showing up on the dashboard."</blockquote>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Conflict -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="num"><small>Chapter II</small>The<br/>Conflict</div>
+      <h2>The funnel was full. The product was loved. <em>The loop was broken.</em></h2>
+    </div>
+    <div class="chapter-body">
+      <aside class="meta-col reveal">
+        <strong>Symptoms</strong>
+        Strong top-of-funnel. Decent activation. Inviting stalled at 6%. Net revenue retention was healthy enough to disguise the leak.
+        <strong style="margin-top:18px">Hidden cost</strong>
+        Every dollar of paid acquisition was, in effect, replacing the referrals that should have been happening for free.
+      </aside>
+      <div class="prose reveal d1">
+        <p>The first week was archeology. We read every onboarding email of the previous two years, watched 38 hours of session replays, and interviewed every PM about why a particular feature shipped. A pattern emerged: the product had been quietly rebuilt for power users over four releases, and the moment new users typically said "oh, this is for me" had moved seventeen screens deeper.</p>
+        <p>The growth engine wasn't broken. It was being run further and further from the part of the product that earned word-of-mouth.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Investigation -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="num"><small>Chapter III</small>The<br/>Investigation</div>
+      <h2>We ran three honest hypotheses. <em>Two failed.</em></h2>
+    </div>
+    <div class="chapter-body">
+      <aside class="meta-col reveal">
+        <strong>Discipline</strong>
+        Every hypothesis got a pre-registered success metric and a kill date. No moving goalposts. No "directional" wins.
+      </aside>
+      <div class="prose reveal d1">
+        <p>The team had been quietly afraid to run experiments that might fail. I told them failure was not optional — it was the entire point. We picked three hypotheses, gave each a deadline, and agreed in advance what we would do if the number didn't move.</p>
+
+        <div class="hyp">
+          <div class="card fail reveal">
+            <div class="tag">Hypothesis A · Failed</div>
+            <h4>Better paid creative will reignite acquisition.</h4>
+            <p>Tested 24 new ad variants across two channels. CPMs dropped, CACs held flat. The audience was tapped, not under-served.</p>
+            <div class="verdict">— retire paid hypothesis</div>
+          </div>
+          <div class="card fail reveal d1">
+            <div class="tag">Hypothesis B · Failed</div>
+            <h4>A pricing change will unlock pent-up demand.</h4>
+            <p>Tested two new tiers and a free workspace. Net revenue moved 4%. Activation didn't move at all.</p>
+            <div class="verdict">— pricing isn't the lever</div>
+          </div>
+          <div class="card reveal d2" style="border-color:var(--maroon);box-shadow:var(--shadow)">
+            <div class="tag">Hypothesis C · Won</div>
+            <h4>Move the "aha" moment two screens forward.</h4>
+            <p>Rebuilt the first 90 seconds of the product around one specific outcome — the one users described in interviews as <em>"the thing I told my team about."</em></p>
+            <div class="verdict">+186% activation in 11 days.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Turning point -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="num"><small>Chapter IV</small>The Turning<br/>Point</div>
+      <h2>The loop that finally felt <em>like the product.</em></h2>
+    </div>
+    <div class="chapter-body">
+      <aside class="meta-col reveal">
+        <strong>The loop</strong>
+        Aha → Invite (in-product, contextual) → Co-activation → Aha (again, together).
+        <strong style="margin-top:18px">What we removed</strong>
+        Three paid channels, one referral discount, one swag drop, one "growth team" Slack channel.
+      </aside>
+      <div class="prose reveal d1">
+        <p>Once new users hit the redesigned "aha" moment, the right ask became obvious: <em>"who on your team would this be useful with?"</em> Not a referral. A collaboration. The invite stopped being a growth tactic and started being a product action.</p>
+        <p>Within four weeks, the loop's K-factor settled at 2.7×. Inviting climbed from 6% to 31%. We turned off three paid channels to see what would happen. The growth chart kept bending.</p>
+
+        <div class="compare reveal">
+          <div class="col before"><div class="lbl">Before</div><div class="v">0.6×</div><span style="font-size:13px;color:var(--muted)">K-factor</span></div>
+          <div class="arrow">→</div>
+          <div class="col after"><div class="lbl">After 14 weeks</div><div class="v">2.7×</div><span style="font-size:13px;color:var(--muted)">K-factor</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pull"><p>The best growth strategy I've ever shipped was <em>a better second screen.</em></p></div>
+
+<!-- Outcome -->
+<section class="chapter" style="border-bottom:0">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="num"><small>Chapter V</small>The<br/>Outcome</div>
+      <h2>The C round priced up. <em>The team got smaller.</em></h2>
+    </div>
+    <div class="chapter-body">
+      <aside class="meta-col reveal">
+        <strong>Six months later</strong>
+        Activated users +186%. Paid spend down 41%. Round priced 1.3× the previous valuation. Growth team reorganized as a product squad.
+      </aside>
+      <div class="prose reveal d1">
+        <p>The investigation was supposed to last fourteen weeks. It lasted thirteen. The deliverable was supposed to be a deck. It turned out to be a redesigned product onboarding and an honest conversation about which channels the company should stop pretending mattered.</p>
+        <p>Six months later, the chart was compounding again. <span class="note">— quietly, this time.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- End credits -->
+<section class="credits">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--rule);padding-bottom:18px;margin-bottom:32px">
+      <h2 style="font-size:clamp(36px,4.6vw,60px);letter-spacing:-.02em;font-weight:400">End Credits</h2>
+      <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">A Halo &amp; Co engagement · 2024</span>
+    </div>
+    <div class="credits-grid">
+      <div>
+        <h4>Roles I held</h4>
+        <ul>
+          <li><span>Interim Head of Growth</span><strong>14 weeks</strong></li>
+          <li><span>Experiment design</span><strong>Lead</strong></li>
+          <li><span>Onboarding redesign</span><strong>Co-lead w/ PM</strong></li>
+          <li><span>Channel audit</span><strong>Lead</strong></li>
+          <li><span>Exec storytelling</span><strong>Lead</strong></li>
+        </ul>
+      </div>
+      <div>
+        <h4>With</h4>
+        <ul>
+          <li><span>CEO</span><strong>D. Park</strong></li>
+          <li><span>PM (onboarding)</span><strong>S. Kemi</strong></li>
+          <li><span>PM (invites)</span><strong>J. Aboagye</strong></li>
+          <li><span>Eng lead</span><strong>L. Cruz</strong></li>
+          <li><span>Research</span><strong>The honest customers</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="between">
+      <a href="case-study-2.html"><div class="lbl">← Previous chapter</div><h3>Case No. 02 — North/South</h3></a>
+      <a class="next" href="case-study-4.html"><div class="lbl">Next chapter →</div><h3>Case No. 04 — Olufemi Bakery</h3></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);font-weight:600">Continue the conversation</p>
+        <h2 style="margin-top:18px">Stuck on a chart that <em>refuses to bend?</em></h2>
+        <p style="margin-top:24px;max-width:46ch;opacity:.85">I take on a small number of advisory engagements. Send the chart.</p>
+        <a href="mailto:hello@mayaokafor.com" style="display:inline-block;margin-top:28px;background:var(--rose);color:var(--ink);padding:14px 22px;border-radius:999px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600">hello@mayaokafor.com →</a>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <a href="#">LinkedIn</a><a href="#">Read.cv</a><a href="#">Substack — Margin Notes</a><a href="#">Letterboxd</a>
+      </div>
+      <div>
+        <h4>More chapters</h4>
+        <a href="case-study-1.html">No. 01 — Maison Rouge</a>
+        <a href="case-study-2.html">No. 02 — North/South</a>
+        <a href="case-study-3.html">No. 03 — Halo &amp; Co</a>
+        <a href="case-study-4.html">No. 04 — Olufemi Bakery</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Maya Okafor</span>
+      <a href="#" class="totop" id="totop">↑ Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>12);
+  const h=document.documentElement;
+  progress.style.width=(Math.max(0,Math.min(1,(h.scrollTop)/(h.scrollHeight-h.clientHeight)))*100)+'%';
+},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('totop').addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
+
+document.getElementById('diagram').innerHTML=`<svg viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+<rect width="600" height="600" fill="#ece2cd"/>
+<g stroke="#1f1c19" stroke-width="1.5" fill="none">
+  <circle cx="180" cy="220" r="62"/>
+  <circle cx="420" cy="220" r="62"/>
+  <circle cx="300" cy="420" r="62"/>
+  <path d="M236 215 Q300 170 364 215" marker-end="url(#a)"/>
+  <path d="M420 280 Q400 360 350 395" marker-end="url(#a)"/>
+  <path d="M250 395 Q200 360 180 285" marker-end="url(#a)"/>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8a1e2b"/></marker></defs>
+</g>
+<text x="160" y="226" font-family="Fraunces" font-size="16" fill="#1f1c19" font-style="italic">Aha</text>
+<text x="395" y="226" font-family="Fraunces" font-size="16" fill="#1f1c19" font-style="italic">Invite</text>
+<text x="270" y="426" font-family="Fraunces" font-size="16" fill="#1f1c19" font-style="italic">Activate</text>
+<text x="40" y="60" font-family="Fraunces" font-size="14" fill="#8a1e2b" letter-spacing="3">HALO &amp; CO — GROWTH LOOP v.4</text>
+<text x="40" y="540" font-family="Caveat" font-size="22" fill="#8a1e2b">"the only loop that closed."</text>
+<text x="40" y="572" font-family="Inter" font-size="11" fill="#7a6f60" letter-spacing="2">DRAFTED 03.14 · SHIPPED 03.29</text>
+</svg>`;
+</script>
+</body>
+</html>

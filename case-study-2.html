@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Case No. 02 — North/South: Sixteen Cities, One Quiet Film</title>
+<meta name="description" content="A platform release for a first-time director's debut film. Sixteen cities, every show sold out." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..800,0..100&family=Inter:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+:root{--paper:#f1e8d6;--paper-2:#ece2cd;--ink:#1f1c19;--ink-soft:#3a342e;--muted:#7a6f60;--rule:#cdbfa3;--maroon:#8a1e2b;--maroon-deep:#5e1019;--gold:#b8893c;--rose:#c98686;--shadow:0 30px 60px -30px rgba(60,30,15,.35),0 8px 20px -10px rgba(60,30,15,.18)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;background-image:radial-gradient(rgba(80,55,30,.05) 1px,transparent 1px),radial-gradient(rgba(80,55,30,.04) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px}
+::selection{background:var(--maroon);color:var(--paper)}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-.01em;color:var(--ink)}
+.script{font-family:"Caveat",cursive}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+@media (max-width:640px){.wrap{padding:0 20px}}
+.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(8px);background:color-mix(in oklab,var(--paper) 86%,transparent);border-bottom:1px solid transparent;transition:border-color .3s ease}
+.nav.scrolled{border-bottom-color:var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-size:20px;font-weight:500}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--maroon)}
+.nav ul{display:flex;gap:28px;list-style:none}
+.nav a{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;color:var(--ink-soft);position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--maroon);transform:scaleX(0);transform-origin:right;transition:transform .35s ease}
+.nav a:hover{color:var(--maroon)}.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+@media (max-width:640px){.nav ul{gap:14px}.nav a{font-size:11px;letter-spacing:.12em}}
+
+/* RHYTHM VARIANT — poster-led, dark hero, two-column body */
+.poster-hero{
+  background:var(--ink);color:var(--paper);padding:80px 0 96px;position:relative;overflow:hidden;
+}
+.poster-hero::before{
+  content:"";position:absolute;inset:0;background:
+    repeating-linear-gradient(0deg, rgba(184,137,60,.05) 0, rgba(184,137,60,.05) 1px, transparent 1px, transparent 6px);
+  pointer-events:none;
+}
+.crumb-dark{display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--paper);border-bottom:1px solid var(--paper);padding:14px 0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);opacity:.85}
+.crumb-dark a{transition:color .3s ease}.crumb-dark a:hover{color:var(--gold)}
+.poster-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;margin-top:60px}
+.poster-grid h1{color:var(--paper);font-size:clamp(56px,8.5vw,130px);letter-spacing:-.04em;font-weight:300;line-height:.92}
+.poster-grid h1 em{color:var(--gold);font-style:italic}
+.poster-grid .lede{font-family:"Fraunces",serif;font-size:clamp(20px,2vw,26px);line-height:1.4;color:var(--paper);opacity:.85;margin-top:32px;max-width:42ch;font-weight:300}
+.poster-grid .lede em{color:var(--gold);font-style:italic}
+.poster-grid .kicker{font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:22px;margin-bottom:18px}
+.poster-grid .byline{display:flex;flex-wrap:wrap;gap:24px;margin-top:32px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);opacity:.8}
+.poster-grid .byline strong{display:block;color:var(--gold);font-weight:600;font-size:11px;letter-spacing:.22em;margin-bottom:4px}
+.poster{aspect-ratio:3/4;background:#0d0b0a;border:1px solid rgba(241,232,214,.2);position:relative;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);transform:rotate(-1.5deg);transition:transform .6s ease}
+.poster:hover{transform:rotate(0deg)}
+.poster .stamp{position:absolute;top:18px;left:18px;width:84px;height:84px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Fraunces",serif;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;transform:rotate(-8deg)}
+@media (max-width:900px){.poster-grid{grid-template-columns:1fr;gap:40px}.poster{transform:none}}
+
+/* stats inside dark hero */
+.stats-dark{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:48px 0 0;margin-top:48px;border-top:1px solid rgba(241,232,214,.18)}
+.stats-dark .s b{display:block;font-family:"Fraunces",serif;font-size:54px;color:var(--gold);font-weight:500;letter-spacing:-.03em;line-height:1}
+.stats-dark .s span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);opacity:.75;font-weight:500;margin-top:8px;display:block}
+@media (max-width:760px){.stats-dark{grid-template-columns:repeat(2,1fr)}}
+
+/* chapter sections */
+.chapter{padding:96px 0;border-bottom:1px solid var(--rule);position:relative}
+.chapter-head{display:grid;grid-template-columns:1fr 2.4fr;gap:60px;align-items:start;margin-bottom:48px}
+.chapter-head .num{font-family:"Fraunces",serif;font-style:italic;color:var(--maroon);font-size:18px}
+.chapter-head .num small{display:block;font-style:normal;font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.chapter-head h2{font-size:clamp(38px,5.4vw,72px);letter-spacing:-.025em;font-weight:400}
+.chapter-head h2 em{font-style:italic;color:var(--maroon);font-weight:300}
+.chapter-body{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start}
+.chapter-body .meta-col{font-size:13px;color:var(--muted);line-height:1.7}
+.chapter-body .meta-col strong{display:block;color:var(--ink);font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:6px}
+.prose p{font-size:19px;line-height:1.7;color:var(--ink-soft);margin-bottom:22px}
+.prose p.first::first-letter{font-family:"Fraunces",serif;font-size:74px;float:left;line-height:.85;padding:6px 12px 0 0;color:var(--maroon);font-weight:500}
+.prose blockquote{font-family:"Fraunces",serif;font-style:italic;font-size:28px;line-height:1.35;color:var(--ink);border-left:3px solid var(--gold);padding:6px 0 6px 24px;margin:28px 0}
+.prose ul{margin:18px 0 24px 22px;color:var(--ink-soft)}.prose li{margin-bottom:10px}
+@media (max-width:900px){.chapter-head,.chapter-body{grid-template-columns:1fr;gap:18px}}
+
+/* tour map — signature moment */
+.tour{padding:96px 0;background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.tour-head{text-align:center;margin-bottom:48px}
+.tour-head h3{font-size:clamp(36px,5vw,64px);font-weight:400;letter-spacing:-.025em}
+.tour-head h3 em{font-style:italic;color:var(--maroon)}
+.tour-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--ink)}
+.tour-grid .city{
+  border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);
+  padding:28px 22px;background:var(--paper);position:relative;
+  transition:background .4s ease,color .4s ease;cursor:default;
+}
+.tour-grid .city:hover{background:var(--ink);color:var(--paper)}
+.tour-grid .city:hover .num{color:var(--gold)}
+.tour-grid .city:nth-child(4n){border-right:0}
+.tour-grid .city:nth-last-child(-n+4){border-bottom:0}
+.tour-grid .city .num{font-family:"Fraunces",serif;font-style:italic;color:var(--maroon);font-size:14px;transition:color .3s ease}
+.tour-grid .city h4{font-family:"Fraunces",serif;font-size:24px;font-weight:500;margin:8px 0 4px}
+.tour-grid .city span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.tour-grid .city::after{content:"SOLD OUT";position:absolute;top:14px;right:14px;font-size:9px;letter-spacing:.22em;color:var(--maroon);font-weight:700;border:1px solid var(--maroon);padding:3px 6px;border-radius:2px;transition:color .3s ease,border-color .3s ease}
+.tour-grid .city:hover::after{color:var(--gold);border-color:var(--gold)}
+@media (max-width:760px){.tour-grid{grid-template-columns:repeat(2,1fr)}.tour-grid .city{border-right:1px solid var(--ink)!important;border-bottom:1px solid var(--ink)!important}.tour-grid .city:nth-child(2n){border-right:0!important}.tour-grid .city:nth-last-child(-n+2){border-bottom:0!important}}
+
+/* pull quote */
+.pull{margin:0;padding:96px 32px;background:var(--ink);color:var(--paper);text-align:center;position:relative}
+.pull p{font-family:"Fraunces",serif;font-size:clamp(28px,3.6vw,46px);font-weight:300;line-height:1.25;max-width:26ch;margin:0 auto;letter-spacing:-.01em}
+.pull p em{color:var(--gold);font-style:italic}
+
+/* end credits */
+.credits{padding:96px 0 64px}
+.credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.credits h4{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--maroon);font-weight:600;font-family:"Inter",sans-serif;margin-bottom:14px}
+.credits ul{list-style:none;border-top:1px solid var(--rule)}
+.credits li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-soft)}
+.credits li strong{font-family:"Fraunces",serif;color:var(--ink);font-weight:500}
+@media (max-width:760px){.credits-grid{grid-template-columns:1fr}}
+
+.between{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:64px 0 32px}
+.between a{border:1px solid var(--ink);padding:28px;display:block;background:var(--paper-2);transition:background .3s ease,color .3s ease,transform .3s ease}
+.between a:hover{background:var(--ink);color:var(--paper);transform:translateY(-4px)}
+.between .lbl{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.between a:hover .lbl{color:var(--gold)}
+.between h3{font-family:"Fraunces",serif;font-size:26px;font-weight:500}
+.between .next{text-align:right}
+@media (max-width:640px){.between{grid-template-columns:1fr}.between .next{text-align:left}}
+
+footer{background:var(--ink);color:var(--paper);padding:80px 0 40px;margin-top:0}
+footer .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:60px;margin-bottom:60px}
+footer h2{color:var(--paper);font-size:clamp(36px,5vw,60px);font-weight:400;letter-spacing:-.025em;line-height:1.05}
+footer h2 em{font-style:italic;color:var(--rose);font-weight:300}
+footer h4{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:14px;font-weight:600;font-family:"Inter",sans-serif}
+footer a,footer p{color:var(--paper);opacity:.9;font-size:15px;display:block;margin-bottom:10px;transition:color .3s ease,opacity .3s ease}
+footer a:hover{color:var(--rose);opacity:1}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(241,232,214,.18);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,232,214,.6)}
+.totop{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(241,232,214,.3);padding:10px 16px;border-radius:999px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;transition:background .3s ease,color .3s ease}
+.totop:hover{background:var(--rose);color:var(--ink);border-color:var(--rose)}
+@media (max-width:760px){footer .grid{grid-template-columns:1fr;gap:32px}.foot-bottom{flex-direction:column;gap:14px;text-align:center}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+.page-turn{position:fixed;inset:0;background:var(--ink);z-index:200;transform-origin:left center;animation:turn 1.1s cubic-bezier(.7,.0,.2,1) forwards;pointer-events:none}
+@keyframes turn{0%{transform:scaleX(1)}60%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--gold);width:0;z-index:100;transition:width .1s linear}
+.note{font-family:"Caveat",cursive;color:var(--maroon);font-size:22px}
+</style>
+</head>
+<body>
+<div class="page-turn" aria-hidden="true"></div>
+<div class="progress" id="progress"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span> Maya Okafor</a>
+    <nav><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main>
+<section class="poster-hero">
+  <div class="wrap">
+    <div class="crumb-dark">
+      <a href="index.html">← Back to The Quarterly</a>
+      <span>Case No. 02 · The Features</span>
+      <span>Issue 03 — 2026</span>
+    </div>
+
+    <div class="poster-grid">
+      <div>
+        <div class="kicker reveal">Film · Independent Release · 2024</div>
+        <h1 class="reveal d1">Sixteen cities. <em>One quiet film.</em></h1>
+        <p class="lede reveal d2">An A24-style platform release for a first-time director — engineered scarcity, critics as collaborators, and an audience that did most of the marketing for us.</p>
+        <div class="byline reveal d3">
+          <div><strong>Client</strong>North/South Pictures</div>
+          <div><strong>Role</strong>Campaign Director</div>
+          <div><strong>Format</strong>Theatrical platform release</div>
+          <div><strong>Timeframe</strong>9 months pre, 12 weeks live</div>
+        </div>
+      </div>
+      <div class="poster reveal d2" id="poster">
+        <span class="stamp">Case<br/>No. 02</span>
+      </div>
+    </div>
+
+    <div class="stats-dark reveal">
+      <div class="s"><b>16/16</b><span>Cities sold out, opening weekend</span></div>
+      <div class="s"><b>92%</b><span>Verified audience score</span></div>
+      <div class="s"><b>3.1M</b><span>Earned media impressions</span></div>
+      <div class="s"><b>$0</b><span>Spent on out-of-home in tier-1 markets</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Opening Scene -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="num"><small>Chapter I</small>Opening<br/>Scene</div>
+      <h2>A debut film. A festival jury award. <em>And no plan after that.</em></h2>
+    </div>
+    <div class="chapter-body">
+      <aside class="meta-col reveal">
+        <strong>Setting</strong>
+        Late spring. Sundance had ended six weeks earlier. The film had a small distributor, a modest P&amp;A budget, and a director who had never given a press interview.
+        <strong style="margin-top:18px">Stakes</strong>
+        Either the platform release worked, or the film would quietly disappear into a streaming deal at half the value.
+      </aside>
+      <div class="prose reveal d1">
+        <p class="first">First-time directors do not, as a rule, get to choose how their films are released. They are handed a marketing playbook designed for someone else's film, told to be grateful, and asked to smile in fifteen-minute press junkets. Our director — a 29-year-old documentarian from Lagos by way of Glasgow — wanted to do exactly none of those things.</p>
+        <p>So we built a different playbook. Instead of trying to be everywhere, we picked sixteen cities and tried to be unmissable in each one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Conflict -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="num"><small>Chapter II</small>The<br/>Conflict</div>
+      <h2>The film was <em>too quiet</em> for the algorithm.</h2>
+    </div>
+    <div class="chapter-body">
+      <aside class="meta-col reveal">
+        <strong>What did not work</strong>
+        Standard trailer + paid social. Test screenings produced respectful applause and zero forwards. The film does not have a hook you can put on a billboard.
+        <strong style="margin-top:18px">What did</strong>
+        Letting the film be exactly what it is, in front of exactly the right people, on exactly the right night.
+      </aside>
+      <div class="prose reveal d1">
+        <p>The cut we had was 102 minutes of patient, observational filmmaking. It rewarded attention and punished impatience. The trailer test scores came back politely lukewarm — and they would have stayed that way, because the trailer was lying about the film.</p>
+        <blockquote>"Don't sell what the film isn't. Sell the experience of finally finding a film that respects you."</blockquote>
+        <p>We retired the standard trailer. We replaced it with a 38-second teaser, a critic-quote ribbon, and a series of single-frame stills released one per day on the run-up to each city. No music. No voiceover. The marketing did what the film did.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Investigation -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="num"><small>Chapter III</small>The<br/>Investigation</div>
+      <h2>We treated each city <em>like a small magazine.</em></h2>
+    </div>
+    <div class="chapter-body">
+      <aside class="meta-col reveal">
+        <strong>Method</strong>
+        16 city briefs. 16 local hosts. 16 partner venues — independent cinemas only.
+        <strong style="margin-top:18px">Hosts</strong>
+        Novelists, chefs, musicians, a public defender. People with audiences who trust their taste.
+      </aside>
+      <div class="prose reveal d1">
+        <p>For each city, we identified one cultural figure whose audience would feel personally addressed by the film. We sent them an unedited screener, a handwritten letter from the director, and a question: <em>"if this film had a co-host in your city, would you do it?"</em></p>
+        <p>Fourteen of the sixteen said yes within a week. Two said no, kindly, and recommended someone better. We listened.</p>
+        <ul>
+          <li>Each screening opened with a 4-minute introduction by the host — never the director.</li>
+          <li>Each ended with a 20-minute conversation between host and director, recorded and released as a short podcast 48 hours later.</li>
+          <li>No press junkets. The conversations <em>were</em> the press.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tour map signature moment -->
+<section class="tour">
+  <div class="wrap">
+    <div class="tour-head reveal">
+      <p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--maroon);font-weight:600;margin-bottom:14px">The Tour, Spring 2024</p>
+      <h3>Sixteen cities, <em>every show full.</em></h3>
+    </div>
+    <div class="tour-grid reveal d1">
+      <div class="city"><div class="num">i.</div><h4>Brooklyn</h4><span>Nitehawk · Apr 4</span></div>
+      <div class="city"><div class="num">ii.</div><h4>Los Angeles</h4><span>The Vista · Apr 6</span></div>
+      <div class="city"><div class="num">iii.</div><h4>Chicago</h4><span>Music Box · Apr 9</span></div>
+      <div class="city"><div class="num">iv.</div><h4>Toronto</h4><span>The Royal · Apr 12</span></div>
+      <div class="city"><div class="num">v.</div><h4>Austin</h4><span>Alamo · Apr 15</span></div>
+      <div class="city"><div class="num">vi.</div><h4>Portland</h4><span>Hollywood · Apr 17</span></div>
+      <div class="city"><div class="num">vii.</div><h4>Mexico City</h4><span>Cine Tonalá · Apr 20</span></div>
+      <div class="city"><div class="num">viii.</div><h4>London</h4><span>Prince Charles · Apr 24</span></div>
+      <div class="city"><div class="num">ix.</div><h4>Glasgow</h4><span>GFT · Apr 26</span></div>
+      <div class="city"><div class="num">x.</div><h4>Berlin</h4><span>Babylon · Apr 29</span></div>
+      <div class="city"><div class="num">xi.</div><h4>Paris</h4><span>Le Champo · May 2</span></div>
+      <div class="city"><div class="num">xii.</div><h4>Lisbon</h4><span>Nimas · May 5</span></div>
+      <div class="city"><div class="num">xiii.</div><h4>Lagos</h4><span>Filmhouse · May 9</span></div>
+      <div class="city"><div class="num">xiv.</div><h4>Nairobi</h4><span>Unseen · May 12</span></div>
+      <div class="city"><div class="num">xv.</div><h4>Mumbai</h4><span>Liberty · May 15</span></div>
+      <div class="city"><div class="num">xvi.</div><h4>Tokyo</h4><span>Image Forum · May 18</span></div>
+    </div>
+    <p class="note reveal d2" style="display:block;text-align:center;margin-top:28px">↑ hover a city — yes, every one of them.</p>
+  </div>
+</section>
+
+<!-- Turning Point -->
+<section class="chapter">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="num"><small>Chapter IV</small>The Turning<br/>Point</div>
+      <h2>The first three cities <em>created the rest.</em></h2>
+    </div>
+    <div class="chapter-body">
+      <aside class="meta-col reveal">
+        <strong>What broke open</strong>
+        Brooklyn → Los Angeles → Chicago. Three sold-out nights, three host conversations, one Letterboxd review with 22,000 likes.
+        <strong style="margin-top:18px">Distributor response</strong>
+        Added four cities to the tour mid-run. Doubled the print order.
+      </aside>
+      <div class="prose reveal d1">
+        <p>Opening weekend in Brooklyn sold out forty-eight hours after we announced. Los Angeles followed in twenty-two. By the time the Chicago show closed, three things had become obvious: the audience was self-selecting beautifully, the critics had stopped writing about the film and started writing about <em>being in the room</em>, and the host model was scaling without us touching it.</p>
+        <p>We did not run a single piece of paid out-of-home in our top three markets. We didn't need to. Each city's host had told their audience exactly what was happening, and the audience had told everyone else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="pull"><p>The audience knew it was something <em>before we did.</em> Our job was to keep up.</p></div>
+
+<!-- Outcome -->
+<section class="chapter" style="border-bottom:0">
+  <div class="wrap">
+    <div class="chapter-head reveal">
+      <div class="num"><small>Chapter V</small>The<br/>Outcome</div>
+      <h2>A platform release that <em>actually held.</em></h2>
+    </div>
+    <div class="chapter-body">
+      <aside class="meta-col reveal">
+        <strong>12 weeks later</strong>
+        Per-screen averages outperformed every comparable indie release of that year. The film expanded to 84 screens for its second wave. The streaming deal closed at 3.2× the original offer.
+      </aside>
+      <div class="prose reveal d1">
+        <p>Sixteen cities, sixteen sellouts. A 92% verified audience score that held into the wide release. Three million earned-media impressions on a paid budget that would have bought us, generously, one weekend of New York subway posters.</p>
+        <p>And — more importantly to me — a director who never had to apologize for the film she made.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- End credits -->
+<section class="credits">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--rule);padding-bottom:18px;margin-bottom:32px">
+      <h2 style="font-size:clamp(36px,4.6vw,60px);letter-spacing:-.02em;font-weight:400">End Credits</h2>
+      <span style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)">A North/South Pictures release · 2024</span>
+    </div>
+    <div class="credits-grid">
+      <div>
+        <h4>Roles I held</h4>
+        <ul>
+          <li><span>Campaign strategy</span><strong>Lead</strong></li>
+          <li><span>City host program</span><strong>Built &amp; ran</strong></li>
+          <li><span>Press relations</span><strong>Co-lead</strong></li>
+          <li><span>Audience targeting</span><strong>Lead</strong></li>
+          <li><span>Distributor liaison</span><strong>Primary</strong></li>
+        </ul>
+      </div>
+      <div>
+        <h4>With</h4>
+        <ul>
+          <li><span>Director</span><strong>A. Ojo</strong></li>
+          <li><span>Distributor</span><strong>North/South Pictures</strong></li>
+          <li><span>Publicist</span><strong>Cinetic Media</strong></li>
+          <li><span>Trailer cutter</span><strong>M. Hollis</strong></li>
+          <li><span>City hosts</span><strong>16 generous humans</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="between">
+      <a href="case-study-1.html"><div class="lbl">← Previous chapter</div><h3>Case No. 01 — Maison Rouge</h3></a>
+      <a class="next" href="case-study-3.html"><div class="lbl">Next chapter →</div><h3>Case No. 03 — Halo &amp; Co</h3></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);font-weight:600">Continue the conversation</p>
+        <h2 style="margin-top:18px">Releasing a film, or <em>something that should feel like one?</em></h2>
+        <p style="margin-top:24px;max-width:46ch;opacity:.85">Limited to two engagements per quarter. Tell me what you're trying to put into the world.</p>
+        <a href="mailto:hello@mayaokafor.com" style="display:inline-block;margin-top:28px;background:var(--rose);color:var(--ink);padding:14px 22px;border-radius:999px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600">hello@mayaokafor.com →</a>
+      </div>
+      <div>
+        <h4>Elsewhere</h4>
+        <a href="#">LinkedIn</a><a href="#">Read.cv</a><a href="#">Substack — Margin Notes</a><a href="#">Letterboxd</a>
+      </div>
+      <div>
+        <h4>More chapters</h4>
+        <a href="case-study-1.html">No. 01 — Maison Rouge</a>
+        <a href="case-study-2.html">No. 02 — North/South</a>
+        <a href="case-study-3.html">No. 03 — Halo &amp; Co</a>
+        <a href="case-study-4.html">No. 04 — Olufemi Bakery</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Maya Okafor</span>
+      <a href="#" class="totop" id="totop">↑ Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>12);
+  const h=document.documentElement;
+  progress.style.width=(Math.max(0,Math.min(1,(h.scrollTop)/(h.scrollHeight-h.clientHeight)))*100)+'%';
+},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('totop').addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
+
+// poster
+document.getElementById('poster').innerHTML=`<svg viewBox="0 0 600 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#1a1410"/><stop offset="60%" stop-color="#4a2818"/><stop offset="100%" stop-color="#0a0606"/></linearGradient>
+  <filter id="g"><feTurbulence baseFrequency=".75" numOctaves="2" seed="9"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 .9  0 0 0 0 .7  0 0 0 .15 0"/></filter>
+</defs>
+<rect width="600" height="800" fill="url(#sky)"/>
+<circle cx="450" cy="180" r="60" fill="#b8893c" opacity=".85"/>
+<path d="M0 600 L120 500 L220 560 L360 440 L500 520 L600 480 L600 800 L0 800 Z" fill="#0a0606"/>
+<g stroke="#b8893c" stroke-width="1" opacity=".4"><line x1="0" y1="640" x2="600" y2="640"/><line x1="0" y1="680" x2="600" y2="680"/></g>
+<rect width="600" height="800" filter="url(#g)" opacity=".6"/>
+<text x="40" y="80" font-family="Fraunces, serif" font-size="14" fill="#b8893c" letter-spacing="4">A FILM BY A. OJO</text>
+<text x="40" y="720" font-family="Fraunces, serif" font-size="56" fill="#f1e8d6" font-style="italic">North</text>
+<text x="40" y="770" font-family="Fraunces, serif" font-size="56" fill="#f1e8d6" font-style="italic">/ South</text>
+</svg>`;
+</script>
+</body>
+</html>

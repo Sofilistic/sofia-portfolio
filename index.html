@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Maya Okafor — Brand & Growth Marketer</title>
+<meta name="description" content="An observant strategist disguised as a storyteller. Portfolio of brand campaigns, growth experiments, and film-marketing case studies by Maya Okafor." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..800,0..100&family=Inter:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --paper:#f1e8d6;
+  --paper-2:#ece2cd;
+  --ink:#1f1c19;
+  --ink-soft:#3a342e;
+  --muted:#7a6f60;
+  --rule:#cdbfa3;
+  --maroon:#8a1e2b;
+  --maroon-deep:#5e1019;
+  --gold:#b8893c;
+  --rose:#c98686;
+  --shadow: 0 30px 60px -30px rgba(60,30,15,.35), 0 8px 20px -10px rgba(60,30,15,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Inter",system-ui,sans-serif;
+  font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  background-image:
+    radial-gradient(rgba(80,55,30,.05) 1px, transparent 1px),
+    radial-gradient(rgba(80,55,30,.04) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1px 2px;
+}
+::selection{background:var(--maroon);color:var(--paper)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ---------- Type ---------- */
+.serif{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto}
+.script{font-family:"Caveat",cursive}
+h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-.01em;color:var(--ink)}
+.eyebrow{
+  font-family:"Inter",sans-serif;
+  font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--maroon);font-weight:600;
+}
+.rule{height:1px;background:var(--rule);border:0}
+
+/* ---------- Layout ---------- */
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+@media (max-width:640px){.wrap{padding:0 20px}}
+
+/* ---------- Nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:saturate(140%) blur(8px);
+  background:color-mix(in oklab, var(--paper) 86%, transparent);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease, background .3s ease;
+}
+.nav.scrolled{border-bottom-color:var(--rule)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{display:flex;align-items:center;gap:10px;font-family:"Fraunces",serif;font-size:20px;font-weight:500;letter-spacing:-.01em}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--maroon);display:inline-block;transform:translateY(1px)}
+.nav ul{display:flex;gap:28px;list-style:none}
+.nav a{
+  font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+  color:var(--ink-soft);position:relative;padding:6px 0;
+}
+.nav a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--maroon);
+  transform:scaleX(0);transform-origin:right;transition:transform .35s ease;
+}
+.nav a:hover{color:var(--maroon)}
+.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+@media (max-width:640px){
+  .nav ul{gap:14px}
+  .nav a{font-size:11px;letter-spacing:.12em}
+}
+
+/* ---------- Masthead / Hero ---------- */
+.masthead{padding:36px 0 12px}
+.masthead-top{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);
+  padding:14px 0 12px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);
+}
+.masthead-top .vol{font-family:"Fraunces",serif;font-weight:500;letter-spacing:.06em;text-transform:none;font-size:14px}
+.hero{padding:60px 0 80px;position:relative}
+.hero h1{
+  font-size:clamp(64px,11vw,180px);
+  line-height:.92;letter-spacing:-.035em;font-weight:400;
+}
+.hero h1 em{font-style:italic;color:var(--maroon);font-weight:300}
+.hero-meta{
+  display:grid;grid-template-columns:1.2fr .8fr;gap:60px;margin-top:48px;align-items:end;
+}
+.hero-lede{font-family:"Fraunces",serif;font-size:clamp(22px,2.3vw,30px);line-height:1.35;color:var(--ink-soft);max-width:34ch;font-weight:300}
+.hero-lede em{color:var(--maroon);font-style:italic}
+.hero-side{font-size:14px;color:var(--muted);line-height:1.7}
+.hero-side strong{color:var(--ink);font-weight:600;display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:6px}
+.cta-row{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 22px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+  border-radius:999px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);
+  transition:transform .3s ease, background .3s ease, color .3s ease, box-shadow .3s ease;
+  cursor:pointer;
+}
+.btn:hover{background:var(--maroon);border-color:var(--maroon);transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn .arrow{transition:transform .3s ease}
+.btn:hover .arrow{transform:translateX(4px)}
+.hero-margin{
+  position:absolute;right:32px;top:140px;max-width:200px;
+  font-family:"Caveat",cursive;color:var(--maroon);font-size:22px;line-height:1.2;
+  transform:rotate(-4deg);
+}
+.hero-margin svg{margin-top:6px}
+@media (max-width:900px){
+  .hero-meta{grid-template-columns:1fr;gap:32px}
+  .hero-margin{display:none}
+}
+
+/* hero ticker */
+.ticker{
+  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+  overflow:hidden;white-space:nowrap;padding:14px 0;background:var(--paper-2);
+}
+.ticker-track{display:inline-flex;gap:48px;animation:marq 38s linear infinite;font-family:"Fraunces",serif;font-style:italic;font-size:20px;color:var(--ink-soft)}
+.ticker-track span{display:inline-flex;align-items:center;gap:48px}
+.ticker-track .dot-sep{width:6px;height:6px;border-radius:50%;background:var(--maroon);display:inline-block}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ---------- About ---------- */
+.section{padding:120px 0;position:relative}
+.section-head{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start;margin-bottom:80px}
+.section-head .num{font-family:"Fraunces",serif;font-size:14px;color:var(--maroon);letter-spacing:.1em}
+.section-head h2{font-size:clamp(40px,6vw,84px);letter-spacing:-.03em;font-weight:400}
+.section-head h2 em{font-style:italic;color:var(--maroon);font-weight:300}
+@media (max-width:760px){.section-head{grid-template-columns:1fr;gap:18px;margin-bottom:48px}}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-body p{margin-bottom:22px;color:var(--ink-soft);font-size:18px;line-height:1.7}
+.about-body p:first-of-type::first-letter{
+  font-family:"Fraunces",serif;font-size:74px;float:left;line-height:.85;
+  padding:6px 12px 0 0;color:var(--maroon);font-weight:500;
+}
+.about-card{
+  background:var(--paper-2);border:1px solid var(--rule);
+  padding:32px;position:relative;
+  box-shadow:var(--shadow);
+  transform:rotate(.5deg);
+}
+.about-card::before{
+  content:"";position:absolute;top:-12px;left:50%;width:90px;height:24px;background:var(--maroon);opacity:.75;
+  transform:translateX(-50%) rotate(-2deg);
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+.about-card h3{font-size:24px;margin-bottom:18px}
+.facts{list-style:none;display:flex;flex-direction:column;gap:14px;font-size:14.5px;color:var(--ink-soft)}
+.facts li{display:flex;justify-content:space-between;gap:24px;border-bottom:1px dashed var(--rule);padding-bottom:10px}
+.facts li:last-child{border-bottom:0}
+.facts strong{font-family:"Fraunces",serif;font-weight:500;color:var(--ink)}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+  padding:8px 12px;border:1px solid var(--ink);border-radius:999px;color:var(--ink);
+}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:48px}}
+
+/* ---------- Work / Case studies ---------- */
+.work-intro{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:48px;flex-wrap:wrap}
+.cases{display:flex;flex-direction:column;gap:120px}
+.case{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;position:relative;
+}
+.case.alt{grid-template-columns:.85fr 1.15fr}
+.case.alt .case-visual{order:2}
+.case.alt .case-copy{order:1}
+.case-visual{
+  position:relative;aspect-ratio:4/5;overflow:hidden;
+  border:1px solid var(--rule);box-shadow:var(--shadow);
+  transition:transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.case:hover .case-visual{transform:translateY(-6px) rotate(-.4deg)}
+.case-visual .frame{position:absolute;inset:0}
+.case-visual .caption{
+  position:absolute;left:14px;bottom:14px;
+  background:var(--paper);padding:8px 12px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);
+  border:1px solid var(--ink);
+}
+.case-visual .stamp{
+  position:absolute;top:18px;right:18px;
+  width:96px;height:96px;border:2px solid var(--maroon);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-family:"Fraunces",serif;font-size:11px;letter-spacing:.14em;color:var(--maroon);text-transform:uppercase;
+  transform:rotate(-12deg);background:color-mix(in oklab, var(--paper) 80%, transparent);
+}
+.case-copy .meta{display:flex;gap:14px;align-items:center;margin-bottom:18px;color:var(--muted);font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+.case-copy .meta .sep{width:24px;height:1px;background:var(--muted)}
+.case-copy h3{font-size:clamp(36px,4.4vw,58px);letter-spacing:-.025em;font-weight:400;margin-bottom:18px;line-height:1.02}
+.case-copy h3 em{font-style:italic;color:var(--maroon);font-weight:300}
+.case-copy .dek{font-family:"Fraunces",serif;font-size:21px;line-height:1.45;color:var(--ink-soft);font-weight:300;margin-bottom:26px;max-width:46ch}
+.case-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0 28px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:18px 0}
+.case-stats .s{font-family:"Fraunces",serif}
+.case-stats .s b{display:block;font-size:32px;color:var(--maroon);font-weight:500;letter-spacing:-.02em}
+.case-stats .s span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-family:"Inter",sans-serif;font-weight:500}
+.case-link{
+  display:inline-flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;
+  border-bottom:1px solid var(--ink);padding-bottom:6px;color:var(--ink);
+  transition:color .3s ease, border-color .3s ease, gap .3s ease;
+}
+.case-link:hover{color:var(--maroon);border-color:var(--maroon);gap:18px}
+.note{
+  font-family:"Caveat",cursive;color:var(--maroon);font-size:20px;line-height:1.2;
+  position:absolute;
+}
+@media (max-width:900px){
+  .case,.case.alt{grid-template-columns:1fr;gap:32px}
+  .case.alt .case-visual{order:0}
+  .case.alt .case-copy{order:1}
+  .case-visual{aspect-ratio:5/4}
+  .note{display:none}
+}
+
+/* ---------- Featured logos ---------- */
+.logos{padding:40px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-top:40px}
+.logos-inner{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;color:var(--muted)}
+.logos span{font-family:"Fraunces",serif;font-style:italic;font-size:16px}
+.logos b{font-family:"Fraunces",serif;font-weight:500;font-size:22px;color:var(--ink);letter-spacing:.04em}
+
+/* ---------- Footer ---------- */
+footer{background:var(--ink);color:var(--paper);padding:100px 0 40px;margin-top:120px;position:relative}
+footer .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:60px;margin-bottom:80px}
+footer h2{color:var(--paper);font-size:clamp(40px,6vw,76px);font-weight:400;letter-spacing:-.025em;line-height:1.02}
+footer h2 em{font-style:italic;color:var(--rose);font-weight:300}
+footer .col h4{font-family:"Inter",sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rose);margin-bottom:18px;font-weight:600}
+footer .col a, footer .col p{color:var(--paper);opacity:.9;font-size:15px;display:block;margin-bottom:10px;transition:color .3s ease, opacity .3s ease}
+footer .col a:hover{color:var(--rose);opacity:1}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(241,232,214,.18);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(241,232,214,.6)}
+.totop{
+  display:inline-flex;align-items:center;gap:10px;color:var(--paper);
+  border:1px solid rgba(241,232,214,.3);padding:10px 16px;border-radius:999px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+  transition:background .3s ease, color .3s ease;
+}
+.totop:hover{background:var(--rose);color:var(--ink);border-color:var(--rose)}
+@media (max-width:760px){footer .grid{grid-template-columns:1fr;gap:40px} .foot-bottom{flex-direction:column;gap:14px;text-align:center}}
+
+/* ---------- Reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}
+
+/* signature moment: split-letter hero entrance */
+.split{display:inline-block;overflow:hidden}
+.split span{display:inline-block;transform:translateY(110%);animation:rise 1.1s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes rise{to{transform:translateY(0)}}
+
+/* page-turn intro */
+.page-turn{position:fixed;inset:0;background:var(--ink);z-index:200;transform-origin:left center;animation:turn 1.1s cubic-bezier(.7,.0,.2,1) forwards;pointer-events:none}
+@keyframes turn{0%{transform:scaleX(1)}60%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+</style>
+</head>
+<body>
+<div class="page-turn" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span> Maya Okafor</a>
+    <nav><ul>
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="wrap masthead">
+    <div class="masthead-top">
+      <span>Vol. VII · Issue 03</span>
+      <span class="vol"><em>The</em> Okafor <em>Quarterly</em></span>
+      <span>Lagos · Brooklyn · 2026</span>
+    </div>
+
+    <div class="hero">
+      <h1>
+        <span class="split"><span>Brand,</span></span><br/>
+        <span class="split"><span style="animation-delay:.08s">growth&nbsp;&amp;&nbsp;</span></span><em><span class="split"><span style="animation-delay:.16s">the&nbsp;quiet</span></span></em><br/>
+        <span class="split"><span style="animation-delay:.24s">art of attention.</span></span>
+      </h1>
+
+      <div class="hero-margin" aria-hidden="true">
+        “An observant strategist
+        disguised as a storyteller.”
+        <svg width="80" height="40" viewBox="0 0 80 40" fill="none"><path d="M2 6 C 30 2, 50 30, 78 14" stroke="#8a1e2b" stroke-width="1.6" fill="none" stroke-linecap="round"/><path d="M70 10 L78 14 L74 22" stroke="#8a1e2b" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+      </div>
+
+      <div class="hero-meta">
+        <p class="hero-lede">
+          I build brands the way good directors build films — with a point of view, a budget, and a thesis about why people will <em>care</em>. Seven years across consumer launches, A24-adjacent film campaigns, and growth experiments that respected the audience enough to surprise them.
+        </p>
+        <div class="hero-side">
+          <strong>Now</strong>
+          Head of Brand at Cinework Studios. Quietly consulting on two launches. Reading more screenplays than marketing books — on purpose.
+          <div class="cta-row">
+            <a href="#work" class="btn">View My Work <span class="arrow">→</span></a>
+            <a href="#" class="btn ghost" download>Download My CV</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Campaigns ·<i class="dot-sep"></i>· Launches ·<i class="dot-sep"></i>· Growth loops ·<i class="dot-sep"></i>· Film marketing ·<i class="dot-sep"></i>· Brand systems ·<i class="dot-sep"></i>· Copy that earns its space ·<i class="dot-sep"></i>· </span>
+      <span>Campaigns ·<i class="dot-sep"></i>· Launches ·<i class="dot-sep"></i>· Growth loops ·<i class="dot-sep"></i>· Film marketing ·<i class="dot-sep"></i>· Brand systems ·<i class="dot-sep"></i>· Copy that earns its space ·<i class="dot-sep"></i>· </span>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="reveal">
+          <div class="num">01 — Editor's Note</div>
+        </div>
+        <h2 class="reveal d1">About <em>the strategist</em> behind the bylines.</h2>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-body reveal">
+          <p>I grew up between two cities and one obsession: noticing what made people stop scrolling, leaning in, or actually walking into a cinema on a Tuesday. My career has been a long-running attempt to industrialize that noticing.</p>
+          <p>I lead brand and growth at the intersection of taste and arithmetic. I write briefs that read like short stories, ship campaigns that respect the audience's intelligence, and run experiments that tell me something true — not just something flattering.</p>
+          <p>I've launched three consumer brands from zero, marketed independent films into wide releases, and rebuilt a Series B's growth engine without buying another impression. I'm most useful when the problem is unclear and the stakes are high.</p>
+        </div>
+
+        <aside class="about-card reveal d2">
+          <h3 class="serif">The masthead</h3>
+          <ul class="facts">
+            <li><strong>Based</strong><span>Brooklyn / Lagos</span></li>
+            <li><strong>Role</strong><span>Brand &amp; Growth</span></li>
+            <li><strong>Years</strong><span>7 in industry</span></li>
+            <li><strong>Best at</strong><span>Launches &amp; turnarounds</span></li>
+            <li><strong>Currently</strong><span>Open to advisory</span></li>
+          </ul>
+          <div class="skills">
+            <span class="chip">Brand Strategy</span>
+            <span class="chip">Campaign Concepting</span>
+            <span class="chip">Growth Experiments</span>
+            <span class="chip">Copywriting</span>
+            <span class="chip">Film Marketing</span>
+            <span class="chip">Positioning</span>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section" id="work" style="padding-top:40px">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="reveal"><div class="num">02 — The Features</div></div>
+        <h2 class="reveal d1">Selected work, <em>told as chapters.</em></h2>
+      </div>
+
+      <div class="work-intro reveal">
+        <p style="max-width:52ch;color:var(--ink-soft);font-size:17px">
+          Four case studies, each written like a small documentary — opening scene, conflict, investigation, turning point, and the numbers that came after.
+        </p>
+        <p class="script" style="color:var(--maroon);font-size:24px">Read in any order.</p>
+      </div>
+
+      <div class="cases">
+
+        <!-- CASE 1 -->
+        <article class="case reveal">
+          <a class="case-visual" href="case-study-1.html" aria-label="Open case study 1">
+            <div class="frame" id="vis1"></div>
+            <span class="stamp">Case<br/>No. 01</span>
+            <span class="caption">Fig. 01 — Launch poster, week one</span>
+          </a>
+          <div class="case-copy">
+            <div class="meta"><span>Consumer · DTC</span><span class="sep"></span><span>2025</span></div>
+            <h3>How we sold a $48 candle <em>by writing fewer ads.</em></h3>
+            <p class="dek">A direct-to-consumer launch that traded performance creative volume for one cinematic spot and a campaign that read like a short story. The result outperformed every prior launch the founders had run.</p>
+            <div class="case-stats">
+              <div class="s"><b>+312%</b><span>Launch revenue</span></div>
+              <div class="s"><b>4.2×</b><span>ROAS, month 1</span></div>
+              <div class="s"><b>−61%</b><span>Creative spend</span></div>
+            </div>
+            <a class="case-link" href="case-study-1.html">Read the case <span>→</span></a>
+          </div>
+          <span class="note script" style="top:-20px;right:-10px;transform:rotate(6deg)">my favourite ✶</span>
+        </article>
+
+        <!-- CASE 2 -->
+        <article class="case alt reveal">
+          <a class="case-visual" href="case-study-2.html" aria-label="Open case study 2">
+            <div class="frame" id="vis2"></div>
+            <span class="stamp" style="border-color:var(--gold);color:var(--gold)">Case<br/>No. 02</span>
+            <span class="caption">Fig. 02 — Out-of-home, weekend two</span>
+          </a>
+          <div class="case-copy">
+            <div class="meta"><span>Film · Independent</span><span class="sep"></span><span>2024</span></div>
+            <h3>Turning a quiet indie film <em>into a sold-out tour.</em></h3>
+            <p class="dek">An A24-style platform release for a first-time director. We engineered scarcity, courted critics like collaborators, and let the audience do the marketing. Sixteen cities, every show full.</p>
+            <div class="case-stats">
+              <div class="s"><b>16/16</b><span>Sold-out cities</span></div>
+              <div class="s"><b>92%</b><span>Audience score</span></div>
+              <div class="s"><b>3.1M</b><span>Earned impressions</span></div>
+            </div>
+            <a class="case-link" href="case-study-2.html">Read the case <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- CASE 3 -->
+        <article class="case reveal">
+          <a class="case-visual" href="case-study-3.html" aria-label="Open case study 3">
+            <div class="frame" id="vis3"></div>
+            <span class="stamp">Case<br/>No. 03</span>
+            <span class="caption">Fig. 03 — Growth loop diagram, v.4</span>
+          </a>
+          <div class="case-copy">
+            <div class="meta"><span>SaaS · Series B</span><span class="sep"></span><span>2024</span></div>
+            <h3>Rebuilding a growth engine <em>without buying ads.</em></h3>
+            <p class="dek">A 14-week investigation into why a category-leading product had stopped compounding. We retired three channels, redesigned the onboarding narrative, and shipped a referral loop that finally felt like the product.</p>
+            <div class="case-stats">
+              <div class="s"><b>+186%</b><span>Activated users</span></div>
+              <div class="s"><b>−$0</b><span>Paid added</span></div>
+              <div class="s"><b>2.7×</b><span>K-factor</span></div>
+            </div>
+            <a class="case-link" href="case-study-3.html">Read the case <span>→</span></a>
+          </div>
+          <span class="note script" style="bottom:-10px;left:40%;transform:rotate(-3deg)">↑ the turnaround issue</span>
+        </article>
+
+        <!-- CASE 4 -->
+        <article class="case alt reveal">
+          <a class="case-visual" href="case-study-4.html" aria-label="Open case study 4">
+            <div class="frame" id="vis4"></div>
+            <span class="stamp" style="border-color:var(--rose);color:var(--maroon)">Case<br/>No. 04</span>
+            <span class="caption">Fig. 04 — Identity sheet, final round</span>
+          </a>
+          <div class="case-copy">
+            <div class="meta"><span>Brand · Rebrand</span><span class="sep"></span><span>2023</span></div>
+            <h3>A 40-year-old bakery, <em>rewritten for a new generation.</em></h3>
+            <p class="dek">A heritage brand on the wrong side of a generational handover. We mined eight decades of receipts, photographs, and family arguments to build a brand that felt newer by feeling more itself.</p>
+            <div class="case-stats">
+              <div class="s"><b>+74%</b><span>Foot traffic</span></div>
+              <div class="s"><b>2 yrs</b><span>Of press coverage</span></div>
+              <div class="s"><b>1</b><span>Beloved bakery, saved</span></div>
+            </div>
+            <a class="case-link" href="case-study-4.html">Read the case <span>→</span></a>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="logos">
+        <div class="logos-inner">
+          <span>Featured work for</span>
+          <b>CINEWORK</b><b>Maison Rouge</b><b>Halo&amp;Co</b><b>NORTH/SOUTH</b><b>Olufemi Bakery</b>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <p class="eyebrow" style="color:var(--rose)">Let's begin a chapter</p>
+        <h2 style="margin-top:18px">Have a launch, a turnaround, or a <em>strange idea?</em></h2>
+        <p style="margin-top:24px;max-width:46ch;opacity:.85">I take on a small number of engagements each quarter — usually two. Tell me what you're trying to make true in the world.</p>
+        <a href="mailto:hello@mayaokafor.com" class="btn" style="margin-top:28px;background:var(--rose);color:var(--ink);border-color:var(--rose)">hello@mayaokafor.com <span class="arrow">→</span></a>
+      </div>
+      <div class="col">
+        <h4>Elsewhere</h4>
+        <a href="#">LinkedIn</a>
+        <a href="#">Read.cv</a>
+        <a href="#">Substack — Margin Notes</a>
+        <a href="#">Letterboxd</a>
+      </div>
+      <div class="col">
+        <h4>Studio</h4>
+        <p>Brooklyn, NY</p>
+        <p>Lagos, NG</p>
+        <p>Available worldwide</p>
+        <h4 style="margin-top:24px">Pages</h4>
+        <a href="case-study-1.html">Case No. 01</a>
+        <a href="case-study-2.html">Case No. 02</a>
+        <a href="case-study-3.html">Case No. 03</a>
+        <a href="case-study-4.html">Case No. 04</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Maya Okafor — All chapters reserved</span>
+      <a href="#top" class="totop">↑ Back to top</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Sticky nav state
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 12);
+}, {passive:true});
+
+// Reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }});
+}, {threshold:.14, rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Smooth scroll for in-page anchors
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const id = a.getAttribute('href');
+    if(id.length>1){
+      const t = document.querySelector(id);
+      if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+    }
+  });
+});
+
+// Cinematic visuals — inline SVG posters, one per case
+const posters = {
+  vis1: `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="g1" cx="50%" cy="40%" r="70%"><stop offset="0%" stop-color="#f6e9c9"/><stop offset="60%" stop-color="#d99a6c"/><stop offset="100%" stop-color="#5e1019"/></radialGradient>
+      <filter id="n1"><feTurbulence baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .2  0 0 0 0 .1  0 0 0 0 .05  0 0 0 .25 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+    </defs>
+    <rect width="400" height="500" fill="url(#g1)"/>
+    <ellipse cx="200" cy="280" rx="120" ry="180" fill="#1f1c19" opacity=".85"/>
+    <ellipse cx="200" cy="240" rx="50" ry="70" fill="#f6c97a" opacity=".95"/>
+    <rect width="400" height="500" filter="url(#n1)" opacity=".6"/>
+    <text x="30" y="50" font-family="Fraunces, serif" font-size="14" fill="#f1e8d6" letter-spacing="3">MAISON ROUGE — CH. I</text>
+    <text x="30" y="470" font-family="Fraunces, serif" font-style="italic" font-size="22" fill="#f1e8d6">a candle, a confession</text>
+  </svg>`,
+  vis2: `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#2a2724"/><stop offset="100%" stop-color="#0d0b0a"/></linearGradient>
+      <filter id="n2"><feTurbulence baseFrequency=".7" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 .9  0 0 0 0 .7  0 0 0 .12 0"/></filter></defs>
+    <rect width="400" height="500" fill="url(#g2)"/>
+    <circle cx="200" cy="220" r="120" fill="none" stroke="#b8893c" stroke-width="1.5"/>
+    <circle cx="200" cy="220" r="80" fill="none" stroke="#b8893c" stroke-width="1"/>
+    <line x1="80" y1="220" x2="320" y2="220" stroke="#b8893c" stroke-width=".8"/>
+    <line x1="200" y1="100" x2="200" y2="340" stroke="#b8893c" stroke-width=".8"/>
+    <rect width="400" height="500" filter="url(#n2)"/>
+    <text x="30" y="50" font-family="Fraunces, serif" font-size="14" fill="#b8893c" letter-spacing="3">NORTH/SOUTH — A FILM</text>
+    <text x="30" y="450" font-family="Fraunces, serif" font-style="italic" font-size="28" fill="#f1e8d6">sixteen cities.</text>
+    <text x="30" y="478" font-family="Fraunces, serif" font-style="italic" font-size="28" fill="#f1e8d6">one quiet film.</text>
+  </svg>`,
+  vis3: `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="g3" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#ece2cd"/><stop offset="100%" stop-color="#d6c39a"/></linearGradient></defs>
+    <rect width="400" height="500" fill="url(#g3)"/>
+    <g stroke="#1f1c19" stroke-width="1" fill="none">
+      <circle cx="120" cy="160" r="42"/><circle cx="280" cy="160" r="42"/><circle cx="200" cy="320" r="42"/>
+      <path d="M158 170 Q200 230 240 170" marker-end="url(#arr)"/>
+      <path d="M280 200 Q260 280 220 305" marker-end="url(#arr)"/>
+      <path d="M180 305 Q140 250 130 200" marker-end="url(#arr)"/>
+      <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8a1e2b"/></marker></defs>
+    </g>
+    <text x="100" y="166" font-family="Fraunces" font-size="13" fill="#1f1c19">Aha</text>
+    <text x="262" y="166" font-family="Fraunces" font-size="13" fill="#1f1c19">Invite</text>
+    <text x="180" y="326" font-family="Fraunces" font-size="13" fill="#1f1c19">Activate</text>
+    <text x="30" y="50" font-family="Fraunces, serif" font-size="14" fill="#8a1e2b" letter-spacing="3">HALO &amp; CO — GROWTH LOOP v.4</text>
+    <text x="30" y="470" font-family="Caveat" font-size="22" fill="#8a1e2b">"the only loop that closed."</text>
+  </svg>`,
+  vis4: `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="g4" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#8a1e2b"/><stop offset="100%" stop-color="#3a0a10"/></linearGradient>
+      <filter id="n4"><feTurbulence baseFrequency=".85" numOctaves="2" seed="2"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 .95  0 0 0 0 .85  0 0 0 .15 0"/></filter></defs>
+    <rect width="400" height="500" fill="url(#g4)"/>
+    <g fill="#f1e8d6"><circle cx="120" cy="220" r="60"/><circle cx="220" cy="270" r="80"/><circle cx="300" cy="200" r="40"/></g>
+    <rect width="400" height="500" filter="url(#n4)"/>
+    <text x="30" y="50" font-family="Fraunces, serif" font-size="14" fill="#f1e8d6" letter-spacing="3">OLUFEMI BAKERY — EST. 1984</text>
+    <text x="30" y="450" font-family="Fraunces, serif" font-style="italic" font-size="26" fill="#f1e8d6">newer, by being</text>
+    <text x="30" y="478" font-family="Fraunces, serif" font-style="italic" font-size="26" fill="#f1e8d6">more itself.</text>
+  </svg>`
+};
+Object.entries(posters).forEach(([id,svg])=>{
+  const el = document.getElementById(id);
+  if(el) el.innerHTML = svg;
+});
+</script>
+</body>
+</html>
