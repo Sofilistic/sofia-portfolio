@@ -340,35 +340,46 @@ footer .col a:hover{color:var(--rose);opacity:1}
   }
 }
 
-/*  INTERMEDIATE SCREEN REFINEMENTS (TABLET/LAPTOP) & TEXT CLIPPING FIXES */
+/* DEFINITIVE HEADLINE CLIPPING & RESIZE FIX */
 
-/* 1. Fix the Descender Clipping (Give 'g' and 'q' breathing room) */
-.split {
-  vertical-align: bottom;
-  padding-bottom: 0.12em; /* Creates a invisible safety buffer for the bottom of letters */
-  margin-bottom: -0.12em; /* Prevents the buffer from adding accidental layout spacing */
+/* 1. Force the headline box open so descenders (g, q) never get cut off */
+.hero h1 {
+  line-height: 1.15 !important; /* Bumps it from .92 so text has native breathing room */
+  letter-spacing: -0.03em;
 }
 
-/* 2. Relax the layout on intermediate screens (Laptops/Tablets) */
+/* 2. Overhaul the animation containers to protect the bottom of the letters */
+.split {
+  display: inline-block !important;
+  overflow: hidden !important;
+  vertical-align: bottom !important; /* Perfectly aligns the two side-by-side blocks on line 2 */
+  padding-bottom: 0.25em !important; /* Creates a generous, un-clippable basement for tails */
+  margin-bottom: -0.25em !important; /* Pulls the next line back up so layout stays tight */
+}
+
+/* 3. Ensure the inner animating text plays nice with the new spacing */
+.split span {
+  display: inline-block !important;
+  vertical-align: bottom !important;
+}
+
+/* 4. Smooth scaling for intermediate screens (Tablets / Small Laptops) */
 @media (max-width: 1100px) {
-  /* Increase side margins on medium screens so content never hugs the glass */
   .wrap {
     padding: 0 40px;
   }
-
-  /* Scale down the headline smoothly so it doesn't crowd the screen edges */
   .hero h1 {
-    font-size: clamp(52px, 8.5vw, 90px);
-    line-height: 1.02; /* Loosens up the ultra-tight spacing just enough to prevent collisions */
+    font-size: clamp(52px, 8.5vw, 95px);
+    line-height: 1.1 !important;
   }
 }
 
 @media (max-width: 760px) {
-  /* Additional safety layer for smaller tablets */
   .hero h1 {
-    font-size: clamp(44px, 10vw, 72px);
+    font-size: clamp(40px, 10vw, 72px);
+    line-height: 1.1 !important;
   }
-}  
+}
 </style>
 </head>
 <body>
