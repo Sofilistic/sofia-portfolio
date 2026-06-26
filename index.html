@@ -642,64 +642,74 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   });
 });
 
-// Cinematic visuals — inline SVG posters, one per case
+// Editorial Chapter Visuals — Custom Inline SVGs for Case Features
 const posters = {
   vis1: `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      <radialGradient id="g1" cx="50%" cy="40%" r="70%"><stop offset="0%" stop-color="#f6e9c9"/><stop offset="60%" stop-color="#d99a6c"/><stop offset="100%" stop-color="#5e1019"/></radialGradient>
-      <filter id="n1"><feTurbulence baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .2  0 0 0 0 .1  0 0 0 0 .05  0 0 0 .25 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+      <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fbd9e5"/>
+        <stop offset="100%" stop-color="#ece2cd"/>
+      </linearGradient>
     </defs>
     <rect width="400" height="500" fill="url(#g1)"/>
-    <ellipse cx="200" cy="280" rx="120" ry="180" fill="#1f1c19" opacity=".85"/>
-    <ellipse cx="200" cy="240" rx="50" ry="70" fill="#f6c97a" opacity=".95"/>
-    <rect width="400" height="500" filter="url(#n1)" opacity=".6"/>
-    <text x="30" y="50" font-family="Fraunces, serif" font-size="14" fill="#f1e8d6" letter-spacing="3">MAISON ROUGE — CH. I</text>
-    <text x="30" y="470" font-family="Fraunces, serif" font-style="italic" font-size="22" fill="#f1e8d6">a candle, a confession</text>
+    <circle cx="200" cy="220" r="110" fill="none" stroke="#7f011f" stroke-width="1" stroke-dasharray="4 4"/>
+    <circle cx="200" cy="220" r="85" fill="#7f011f" opacity="0.04"/>
+    <path d="M165 220 C165 185, 200 185, 200 220 C200 185, 235 185, 235 220 C235 255, 200 255, 200 220 C200 255, 165 255, 165 220 Z" fill="none" stroke="#7f011f" stroke-width="1.5"/>
+    <text x="36" y="60" font-family="Fraunces, Georgia, serif" font-size="12" fill="#1f1c19" letter-spacing="3">CLEANELLE — CH. I</text>
+    <text x="36" y="450" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="22" fill="#7f011f">the utility myth</text>
   </svg>`,
+
   vis2: `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#2a2724"/><stop offset="100%" stop-color="#0d0b0a"/></linearGradient>
-      <filter id="n2"><feTurbulence baseFrequency=".7" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 .9  0 0 0 0 .7  0 0 0 .12 0"/></filter></defs>
+    <defs>
+      <linearGradient id="g2" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#ece2cd"/>
+        <stop offset="100%" stop-color="#f8fafc"/>
+      </linearGradient>
+    </defs>
     <rect width="400" height="500" fill="url(#g2)"/>
-    <circle cx="200" cy="220" r="120" fill="none" stroke="#b8893c" stroke-width="1.5"/>
-    <circle cx="200" cy="220" r="80" fill="none" stroke="#b8893c" stroke-width="1"/>
-    <line x1="80" y1="220" x2="320" y2="220" stroke="#b8893c" stroke-width=".8"/>
-    <line x1="200" y1="100" x2="200" y2="340" stroke="#b8893c" stroke-width=".8"/>
-    <rect width="400" height="500" filter="url(#n2)"/>
-    <text x="30" y="50" font-family="Fraunces, serif" font-size="14" fill="#b8893c" letter-spacing="3">NORTH/SOUTH — A FILM</text>
-    <text x="30" y="450" font-family="Fraunces, serif" font-style="italic" font-size="28" fill="#f1e8d6">sixteen cities.</text>
-    <text x="30" y="478" font-family="Fraunces, serif" font-style="italic" font-size="28" fill="#f1e8d6">one quiet film.</text>
+    <circle cx="200" cy="230" r="115" fill="none" stroke="#b8893c" stroke-width="1"/>
+    <circle cx="200" cy="230" r="90" fill="none" stroke="#7f011f" stroke-width="2"/>
+    <path d="M130 230 Q200 140 270 230" fill="none" stroke="#b8893c" stroke-width="1.5"/>
+    <text x="36" y="60" font-family="Fraunces, Georgia, serif" font-size="12" fill="#1f1c19" letter-spacing="3">GREYPALNG — CH. II</text>
+    <text x="36" y="450" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="22" fill="#b8893c">the silver circle</text>
   </svg>`,
+
   vis3: `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="g3" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#ece2cd"/><stop offset="100%" stop-color="#d6c39a"/></linearGradient></defs>
-    <rect width="400" height="500" fill="url(#g3)"/>
-    <g stroke="#1f1c19" stroke-width="1" fill="none">
-      <circle cx="120" cy="160" r="42"/><circle cx="280" cy="160" r="42"/><circle cx="200" cy="320" r="42"/>
-      <path d="M158 170 Q200 230 240 170" marker-end="url(#arr)"/>
-      <path d="M280 200 Q260 280 220 305" marker-end="url(#arr)"/>
-      <path d="M180 305 Q140 250 130 200" marker-end="url(#arr)"/>
-      <defs><marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#8a1e2b"/></marker></defs>
+    <rect width="400" height="500" fill="#1f1c19"/>
+    <g opacity="0.12">
+      <line x1="50" y1="0" x2="50" y2="500" stroke="#f8fafc" stroke-width="0.5"/>
+      <line x1="150" y1="0" x2="150" y2="500" stroke="#f8fafc" stroke-width="0.5"/>
+      <line x1="250" y1="0" x2="250" y2="500" stroke="#f8fafc" stroke-width="0.5"/>
+      <line x1="350" y1="0" x2="350" y2="500" stroke="#f8fafc" stroke-width="0.5"/>
+      <line x1="0" y1="100" x2="400" y2="100" stroke="#f8fafc" stroke-width="0.5"/>
+      <line x1="0" y1="250" x2="400" y2="250" stroke="#f8fafc" stroke-width="0.5"/>
+      <line x1="0" y1="400" x2="400" y2="400" stroke="#f8fafc" stroke-width="0.5"/>
     </g>
-    <text x="100" y="166" font-family="Fraunces" font-size="13" fill="#1f1c19">Aha</text>
-    <text x="262" y="166" font-family="Fraunces" font-size="13" fill="#1f1c19">Invite</text>
-    <text x="180" y="326" font-family="Fraunces" font-size="13" fill="#1f1c19">Activate</text>
-    <text x="30" y="50" font-family="Fraunces, serif" font-size="14" fill="#8a1e2b" letter-spacing="3">HALO &amp; CO — GROWTH LOOP v.4</text>
-    <text x="30" y="470" font-family="Caveat" font-size="22" fill="#8a1e2b">"the only loop that closed."</text>
+    <path d="M140 210 L200 270 L260 210" fill="none" stroke="#fbd9e5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="36" y="60" font-family="Fraunces, Georgia, serif" font-size="12" fill="#f8fafc" letter-spacing="3">SPECFLOW — CH. III</text>
+    <text x="36" y="450" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="22" fill="#fbd9e5">build in public</text>
   </svg>`,
+
   vis4: `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs><linearGradient id="g4" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#8a1e2b"/><stop offset="100%" stop-color="#3a0a10"/></linearGradient>
-      <filter id="n4"><feTurbulence baseFrequency=".85" numOctaves="2" seed="2"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 .95  0 0 0 0 .85  0 0 0 .15 0"/></filter></defs>
-    <rect width="400" height="500" fill="url(#g4)"/>
-    <g fill="#f1e8d6"><circle cx="120" cy="220" r="60"/><circle cx="220" cy="270" r="80"/><circle cx="300" cy="200" r="40"/></g>
-    <rect width="400" height="500" filter="url(#n4)"/>
-    <text x="30" y="50" font-family="Fraunces, serif" font-size="14" fill="#f1e8d6" letter-spacing="3">OLUFEMI BAKERY — EST. 1984</text>
-    <text x="30" y="450" font-family="Fraunces, serif" font-style="italic" font-size="26" fill="#f1e8d6">newer, by being</text>
-    <text x="30" y="478" font-family="Fraunces, serif" font-style="italic" font-size="26" fill="#f1e8d6">more itself.</text>
+    <rect width="400" height="500" fill="#7f011f"/>
+    <g transform="translate(200, 230)">
+      <rect x="-65" y="-65" width="130" height="130" fill="none" stroke="#fbd9e5" stroke-width="1.5" transform="rotate(45)"/>
+      <rect x="-45" y="-45" width="90" height="90" fill="none" stroke="#ece2cd" stroke-width="1" transform="rotate(15)"/>
+    </g>
+    <line x1="40" y1="230" x2="360" y2="230" stroke="#fbd9e5" stroke-width="0.5" stroke-dasharray="2 4"/>
+    <text x="36" y="60" font-family="Fraunces, Georgia, serif" font-size="12" fill="#f8fafc" letter-spacing="3">CIVIC24 — CH. IV</text>
+    <text x="36" y="450" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="22" fill="#ece2cd">repaired in public</text>
   </svg>`
 };
-Object.entries(posters).forEach(([id,svg])=>{
-  const el = document.getElementById(id);
-  if(el) el.innerHTML = svg;
+
+// Dynamic injection loop to render SVGs safely into case frames
+Object.keys(posters).forEach(id => {
+  const targetFrame = document.getElementById(id);
+  if (targetFrame) {
+    targetFrame.innerHTML = posters[id];
+  }
 });
+</script>
 </script>
 </body>
 </html>
