@@ -271,9 +271,7 @@ footer .col a:hover{color:var(--rose);opacity:1}
 .page-turn{position:fixed;inset:0;background:var(--ink);z-index:200;transform-origin:left center;animation:turn 1.1s cubic-bezier(.7,.0,.2,1) forwards;pointer-events:none}
 @keyframes turn{0%{transform:scaleX(1)}60%{transform:scaleX(1)}100%{transform:scaleX(0)}}
 
-/* ==========================================================================
-   MOBILE REFINEMENTS & BREATHING ROOM OVERRIDES
-   ========================================================================== */
+/* --- MOBILE REFINEMENTS & BREATHING ROOM OVERRIDES---- */
 
 @media (max-width: 640px) {
   /* 1. Increase edge safety margins slightly */
@@ -341,6 +339,36 @@ footer .col a:hover{color:var(--rose);opacity:1}
     max-width: 100%;
   }
 }
+
+/*  INTERMEDIATE SCREEN REFINEMENTS (TABLET/LAPTOP) & TEXT CLIPPING FIXES */
+
+/* 1. Fix the Descender Clipping (Give 'g' and 'q' breathing room) */
+.split {
+  vertical-align: bottom;
+  padding-bottom: 0.12em; /* Creates a invisible safety buffer for the bottom of letters */
+  margin-bottom: -0.12em; /* Prevents the buffer from adding accidental layout spacing */
+}
+
+/* 2. Relax the layout on intermediate screens (Laptops/Tablets) */
+@media (max-width: 1100px) {
+  /* Increase side margins on medium screens so content never hugs the glass */
+  .wrap {
+    padding: 0 40px;
+  }
+
+  /* Scale down the headline smoothly so it doesn't crowd the screen edges */
+  .hero h1 {
+    font-size: clamp(52px, 8.5vw, 90px);
+    line-height: 1.02; /* Loosens up the ultra-tight spacing just enough to prevent collisions */
+  }
+}
+
+@media (max-width: 760px) {
+  /* Additional safety layer for smaller tablets */
+  .hero h1 {
+    font-size: clamp(44px, 10vw, 72px);
+  }
+}  
 </style>
 </head>
 <body>
