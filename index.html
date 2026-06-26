@@ -19,7 +19,7 @@
   --maroon:#7f011f;
   --maroon-deep:#5e1019;
   --gold:#b8893c;
-  --rose:#c98686;
+  --rose:#fbd9e5;
   --shadow: 0 30px 60px -30px rgba(60,30,15,.35), 0 8px 20px -10px rgba(60,30,15,.18);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -131,12 +131,12 @@ h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.0
 
 /* hero ticker */
 .ticker{
-  border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
-  overflow:hidden;white-space:nowrap;padding:14px 0;background:var(--paper-2);
+  border-top:1px solid var(--maroon);border-bottom:1px solid var(--maroon);
+  overflow:hidden;white-space:nowrap;padding:14px 0;background:var(--maroon);
 }
 .ticker-track{display:inline-flex;gap:48px;animation:marq 38s linear infinite;font-family:"Fraunces",serif;font-style:italic;font-size:20px;color:var(--ink-soft)}
 .ticker-track span{display:inline-flex;align-items:center;gap:48px}
-.ticker-track .dot-sep{width:6px;height:6px;border-radius:50%;background:var(--maroon);display:inline-block}
+.ticker-track .dot-sep{width:6px;height:6px;border-radius:50%;background:var(--paper);display:inline-block}
 @keyframes marq{to{transform:translateX(-50%)}}
 
 /* ---------- About ---------- */
