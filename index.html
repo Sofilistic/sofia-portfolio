@@ -270,6 +270,77 @@ footer .col a:hover{color:var(--rose);opacity:1}
 /* page-turn intro */
 .page-turn{position:fixed;inset:0;background:var(--ink);z-index:200;transform-origin:left center;animation:turn 1.1s cubic-bezier(.7,.0,.2,1) forwards;pointer-events:none}
 @keyframes turn{0%{transform:scaleX(1)}60%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+
+/* ==========================================================================
+   MOBILE REFINEMENTS & BREATHING ROOM OVERRIDES
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  /* 1. Increase edge safety margins slightly */
+  .wrap {
+    padding: 0 24px;
+  }
+
+  /* 2. Fix Navigation Jam (Gracefully stack logo and links) */
+  .nav-inner {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 0;
+    text-align: center;
+  }
+  .nav ul {
+    gap: 18px;
+    justify-content: center;
+  }
+
+  /* 3. Fix Headline Squeeze (Drop font floor so text doesn't burst out) */
+  .hero h1 {
+    font-size: clamp(38px, 12vw, 58px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Adjust line heights for the split-text animation blocks on mobile */
+  .hero h1 br {
+    display: block;
+    content: "";
+    margin-top: 4px;
+  }
+
+  /* 4. Fix Case Stats Grid (Stack them cleanly so labels don't crush) */
+  .case-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px 0;
+  }
+  
+  /* Add a elegant editorial separator between stats since they now stack */
+  .case-stats .s {
+    border-bottom: 1px dashed var(--rule);
+    padding-bottom: 14px;
+  }
+  .case-stats .s:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .case-stats .s b {
+    font-size: 28px;
+    margin-bottom: 2px;
+  }
+
+  /* 5. Clean up spacing around case visuals */
+  .case-visual {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Ensure the intro text has strong readability when full-width */
+  .hero-lede {
+    font-size: 21px;
+    max-width: 100%;
+  }
+}
 </style>
 </head>
 <body>
