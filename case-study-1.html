@@ -4,12 +4,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Case No. 01 — Cleanelle: A Commodity, Reimagined</title>
-<meta name="description" content="How we turned an everyday cotton ball into a premium purchase, and gave people a reason to care." />
+<meta name="description" content="How I turned an everyday cotton ball into a premium purchase, and gave people a reason to care." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..800,0..100&family=Inter:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
 <style>
-:root{--paper:#f8fafc;--paper-2:#ece2cd;--ink:#1f1c19;--ink-soft:#3a342e;--muted:#7a6f60;--rule:#cdbfa3;--maroon:#8a1e2b;--maroon-deep:#5e1019;--gold:#b8893c;--rose:#c98686;--shadow:0 30px 60px -30px rgba(60,30,15,.35),0 8px 20px -10px rgba(60,30,15,.18)}
+:root{--paper:#f8fafc;--paper-2:#ece2cd;--ink:#1f1c19;--ink-soft:#3a342e;--muted:#7a6f60;--rule:#cdbfa3;--maroon:#7f011f;--maroon-deep:#5e1019;--gold:#b8893c;--rose:#fbd9e5;--shadow:0 30px 60px -30px rgba(60,30,15,.35),0 8px 20px -10px rgba(60,30,15,.18)}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;background-image:radial-gradient(rgba(80,55,30,.05) 1px,transparent 1px),radial-gradient(rgba(80,55,30,.04) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px}
 ::selection{background:var(--maroon);color:var(--paper)}
@@ -136,6 +136,116 @@ footer a:hover{color:var(--rose);opacity:1}
 
 /* progress bar */
 .progress{position:fixed;top:0;left:0;height:3px;background:var(--maroon);width:0;z-index:100;transition:width .1s linear}
+
+/* --- MOBILE REFINEMENTS & BREATHING ROOM OVERRIDES---- */
+
+@media (max-width: 640px) {
+  /* 1. Increase edge safety margins slightly */
+  .wrap {
+    padding: 0 24px;
+  }
+
+  /* 2. Fix Navigation Jam (Gracefully stack logo and links) */
+  .nav-inner {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 0;
+    text-align: center;
+  }
+  .nav ul {
+    gap: 18px;
+    justify-content: center;
+  }
+
+  /* 3. Fix Headline Squeeze (Drop font floor so text doesn't burst out) */
+  .hero h1 {
+    font-size: clamp(38px, 12vw, 58px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+
+  /* Adjust line heights for the split-text animation blocks on mobile */
+  .hero h1 br {
+    display: block;
+    content: "";
+    margin-top: 4px;
+  }
+
+  /* 4. Fix Case Stats Grid (Stack them cleanly so labels don't crush) */
+  .case-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px 0;
+  }
+  
+  /* Add a elegant editorial separator between stats since they now stack */
+  .case-stats .s {
+    border-bottom: 1px dashed var(--rule);
+    padding-bottom: 14px;
+  }
+  .case-stats .s:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .case-stats .s b {
+    font-size: 28px;
+    margin-bottom: 2px;
+  }
+
+  /* 5. Clean up spacing around case visuals */
+  .case-visual {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Ensure the intro text has strong readability when full-width */
+  .hero-lede {
+    font-size: 21px;
+    max-width: 100%;
+  }
+}
+
+/* DEFINITIVE HEADLINE CLIPPING & RESIZE FIX */
+
+/* 1. Force the headline box open so descenders (g, q) never get cut off */
+.hero h1 {
+  line-height: 1.15 !important; /* Bumps it from .92 so text has native breathing room */
+  letter-spacing: -0.03em;
+}
+
+/* 2. Overhaul the animation containers to protect the bottom of the letters */
+.split {
+  display: inline-block !important;
+  overflow: hidden !important;
+  vertical-align: bottom !important; /* Perfectly aligns the two side-by-side blocks on line 2 */
+  padding-bottom: 0.25em !important; /* Creates a generous, un-clippable basement for tails */
+  margin-bottom: -0.25em !important; /* Pulls the next line back up so layout stays tight */
+}
+
+/* 3. Ensure the inner animating text plays nice with the new spacing */
+.split span {
+  display: inline-block !important;
+  vertical-align: bottom !important;
+}
+
+/* 4. Smooth scaling for intermediate screens (Tablets / Small Laptops) */
+@media (max-width: 1100px) {
+  .wrap {
+    padding: 0 40px;
+  }
+  .hero h1 {
+    font-size: clamp(52px, 8.5vw, 95px);
+    line-height: 1.1 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero h1 {
+    font-size: clamp(40px, 10vw, 72px);
+    line-height: 1.1 !important;
+  }
+}  
 </style>
 </head>
 <body>
@@ -158,8 +268,8 @@ footer a:hover{color:var(--rose);opacity:1}
 <section class="wrap chapter-top">
   <div class="crumb">
     <a href="index.html">← Back to Home</a>
-    <span>Case No. 01 · The Features</span>
-    <span>Issue 01 — 2026</span>
+    <span>Issue 01</span>
+    <span>Case No. 01 — 2026</span>
   </div>
 
   <div class="title-block">
