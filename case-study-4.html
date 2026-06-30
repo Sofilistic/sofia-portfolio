@@ -83,6 +83,30 @@ h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.0
 .prose ul{margin:18px 0 24px 22px;color:var(--ink-soft)}.prose li{margin-bottom:10px}
 @media (max-width:900px){.chapter-head,.chapter-body{grid-template-columns:1fr;gap:18px}}
 
+/* Editorial chapters */
+.editorial{
+    display:grid;
+    grid-template-columns:1fr 2.4fr;
+    gap:60px;
+    align-items:start;
+}
+
+.editorial .prose{
+    grid-column:2;
+    max-width:760px;
+}
+
+@media (max-width:900px){
+    .editorial{
+        grid-template-columns:1fr;
+    }
+
+    .editorial .prose{
+        grid-column:auto;
+        max-width:none;
+    }
+}
+
 /* timeline — signature for this case */
 .timeline{padding:96px 0;background:var(--paper-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 .timeline-head{text-align:center;margin-bottom:64px}
@@ -333,8 +357,8 @@ footer a:hover{color:var(--rose);opacity:1}
       <div class="num"><small>Chapter II</small></div>
       <h2>Rebuilding trust in public.</h2>
     </div>
-    <div class="chapter-body single-column">
-      <div class="prose reveal d1">
+    <div class="editorial reveal d1">
+      <div class="prose">
         <p>The instinct in a crisis is often to explain. Civic24 needed to demonstrate.</p>
         <p>Instead of relying on a single public apology, I designed a stakeholder-specific communication system that matched transparency to the audience receiving it.</p>
         <ul>
@@ -374,8 +398,8 @@ footer a:hover{color:var(--rose);opacity:1}
       <div class="num"><small>Chapter III</small></div>
       <h2>The <em>Outcome.</em></h2>
     </div>
-    <div class="chapter-body single-column">
-      <div class="prose reveal d1">
+    <div class="editorial reveal d1">
+      <div class="prose">
         <p>A structured crisis communication system designed to stabilize trust, align messaging across audiences, and guide perception recovery over time.</p>
       </div>
     </div>
