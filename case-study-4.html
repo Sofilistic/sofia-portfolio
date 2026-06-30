@@ -47,10 +47,15 @@ h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.0
 .collage .ph{position:absolute;background:var(--paper-2);border:8px solid var(--paper);box-shadow:0 30px 60px -20px rgba(0,0,0,.4);overflow:hidden;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 .collage .ph:hover{transform:translateY(-8px) rotate(0deg)!important;z-index:10}
 .collage .ph .cap{position:absolute;bottom:6px;left:6px;background:var(--paper);font-family:"Caveat",cursive;color:var(--ink);font-size:14px;padding:2px 8px}
+.collage .ph img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
 .collage .ph1{top:0;left:8%;width:48%;aspect-ratio:4/5;transform:rotate(-5deg)}
 .collage .ph2{top:120px;right:0;width:46%;aspect-ratio:5/4;transform:rotate(4deg)}
 .collage .ph3{bottom:0;left:18%;width:42%;aspect-ratio:1/1;transform:rotate(-2deg)}
-.collage .stamp{position:absolute;top:18px;right:18px;width:84px;height:84px;border:2px solid var(--paper);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Fraunces",serif;font-size:11px;letter-spacing:.14em;color:var(--paper);text-transform:uppercase;transform:rotate(-8deg);background:rgba(0,0,0,.2);backdrop-filter:blur(2px);z-index:20}
 @media (max-width:900px){.scrap-grid{grid-template-columns:1fr;gap:40px}.collage{height:480px;margin-top:20px}}
 
 .stats-dark{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:48px 0 0;margin-top:64px;border-top:1px solid rgba(241,232,214,.25)}
@@ -167,9 +172,17 @@ footer a:hover{color:var(--rose);opacity:1}
       </div>
       <div class="collage reveal d2">
         <span class="stamp">Case<br/>No. 04</span>
-        <div class="ph ph1" id="ph1"><span class="cap">Mr. Olufemi, 1984</span></div>
-        <div class="ph ph2" id="ph2"><span class="cap">Morning bake, 1991</span></div>
-        <div class="ph ph3" id="ph3"><span class="cap">New storefront, 2023</span></div>
+        <div class="ph ph1">
+    <img src="photo1.png" alt="Announcement">
+    </div>
+
+    <div class="ph ph2">
+    <img src="photo2.png" alt="Creative 1">
+    </div>
+
+    <div class="ph ph3">
+    <img src="photo3.png" alt="Creative 2">
+    </div>
       </div>
     </div>
 
@@ -337,9 +350,17 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 document.getElementById('totop').addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
 
 // vintage photo SVGs (sepia / red / kitchen)
-document.getElementById('ph1').innerHTML=`<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="s1" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#d6b67a"/><stop offset="100%" stop-color="#6b4220"/></linearGradient><filter id="gr"><feTurbulence baseFrequency=".9" numOctaves="2" seed="1"/><feColorMatrix values="0 0 0 0 .3  0 0 0 0 .2  0 0 0 0 .1  0 0 0 .35 0"/></filter></defs><rect width="400" height="500" fill="url(#s1)"/><rect x="80" y="80" width="240" height="320" fill="#3a1f10"/><ellipse cx="200" cy="220" rx="70" ry="90" fill="#d6a070"/><rect x="140" y="290" width="120" height="140" fill="#8a1e2b"/><rect width="400" height="500" filter="url(#gr)" opacity=".6"/></svg>`;
-document.getElementById('ph2').innerHTML=`<svg viewBox="0 0 500 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="s2" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#f0d4a0"/><stop offset="100%" stop-color="#7a4a20"/></linearGradient></defs><rect width="500" height="400" fill="url(#s2)"/><ellipse cx="200" cy="220" rx="120" ry="60" fill="#8a4a20"/><ellipse cx="200" cy="200" rx="100" ry="50" fill="#d6a070"/><rect x="320" y="120" width="120" height="200" fill="#3a1f10" opacity=".6"/><circle cx="380" cy="180" r="30" fill="#fde2a3" opacity=".7"/></svg>`;
-document.getElementById('ph3').innerHTML=`<svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="400" fill="#8a1e2b"/><rect x="40" y="60" width="320" height="280" fill="#f1e8d6"/><rect x="40" y="60" width="320" height="40" fill="#8a1e2b"/><text x="200" y="220" font-family="Fraunces, serif" font-size="48" fill="#8a1e2b" text-anchor="middle" font-style="italic">Olufemi</text><text x="200" y="260" font-family="Inter" font-size="12" fill="#1f1c19" letter-spacing="6" text-anchor="middle">EST. 1984</text><text x="200" y="290" font-family="Caveat" font-size="18" fill="#1f1c19" text-anchor="middle">the bread your mother makes</text></svg>`;
+document.getElementById('ph1').innerHTML = `
+  <img src="photo1.png" alt="Announcement">
+`;
+
+document.getElementById('ph2').innerHTML = `
+  <img src="photo2.png" alt="Creative 1">
+`;
+
+document.getElementById('ph3').innerHTML = `
+  <img src="photo3.png" alt="Creative 2">
+`;
 </script>
 </body>
 </html>
