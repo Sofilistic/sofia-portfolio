@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..800,0..100&family=Inter:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
 <style>
-:root{--paper:#f8fafc;--paper-2:#ece2cd;--ink:#1f1c19;--ink-soft:#3a342e;--muted:#7a6f60;--rule:#cdbfa3;--maroon:#3f1521;--maroon-deep:#5e1019;--gold:#b8893c;--rose:#c98686;--shadow:0 30px 60px -30px rgba(60,30,15,.35),0 8px 20px -10px rgba(60,30,15,.18)}
+:root{--paper:#f8fafc;--paper-2:#ece2cd;--ink:#1f1c19;--ink-soft:#3a342e;--muted:#7a6f60;--rule:#cdbfa3;--maroon:#7f011f;--maroon-deep:#5e1019;--gold:#b8893c;--rose:#fbd9e5;--shadow:0 30px 60px -30px rgba(60,30,15,.35),0 8px 20px -10px rgba(60,30,15,.18)}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;background-image:radial-gradient(rgba(80,55,30,.05) 1px,transparent 1px),radial-gradient(rgba(80,55,30,.04) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px}
 ::selection{background:var(--maroon);color:var(--paper)}
@@ -54,7 +54,7 @@ h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.0
     display:block;
 }
 .collage .ph1{top:0;left:8%;width:48%;aspect-ratio:4/5;transform:rotate(-5deg)}
-.collage .ph2{top:120px;right:0;width:46%;aspect-ratio:5/4;transform:rotate(4deg)}
+.collage .ph2{top:120px;right:0;width:46%;aspect-ratio:4/5;transform:rotate(4deg)}
 .collage .ph3{bottom:0;left:18%;width:42%;aspect-ratio:1/1;transform:rotate(-2deg)}
 @media (max-width:900px){.scrap-grid{grid-template-columns:1fr;gap:40px}.collage{height:480px;margin-top:20px}}
 
@@ -132,6 +132,116 @@ footer a:hover{color:var(--rose);opacity:1}
 @keyframes turn{0%{transform:scaleX(1)}60%{transform:scaleX(1)}100%{transform:scaleX(0)}}
 .progress{position:fixed;top:0;left:0;height:3px;background:var(--rose);width:0;z-index:100;transition:width .1s linear}
 .note{font-family:"Caveat",cursive;color:var(--maroon);font-size:22px}
+
+/* --- MOBILE REFINEMENTS & BREATHING ROOM OVERRIDES---- */
+
+@media (max-width: 640px) {
+  /* 1. Increase edge safety margins slightly */
+  .wrap {
+    padding: 0 24px;
+  }
+
+  /* 2. Fix Navigation Jam (Gracefully stack logo and links) */
+  .nav-inner {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 0;
+    text-align: center;
+  }
+  .nav ul {
+    gap: 18px;
+    justify-content: center;
+  }
+
+  /* 3. Fix Headline Squeeze (Drop font floor so text doesn't burst out) */
+  .hero h1 {
+    font-size: clamp(38px, 12vw, 58px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+
+  /* Adjust line heights for the split-text animation blocks on mobile */
+  .hero h1 br {
+    display: block;
+    content: "";
+    margin-top: 4px;
+  }
+
+  /* 4. Fix Case Stats Grid (Stack them cleanly so labels don't crush) */
+  .case-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px 0;
+  }
+  
+  /* Add a elegant editorial separator between stats since they now stack */
+  .case-stats .s {
+    border-bottom: 1px dashed var(--rule);
+    padding-bottom: 14px;
+  }
+  .case-stats .s:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .case-stats .s b {
+    font-size: 28px;
+    margin-bottom: 2px;
+  }
+
+  /* 5. Clean up spacing around case visuals */
+  .case-visual {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Ensure the intro text has strong readability when full-width */
+  .hero-lede {
+    font-size: 21px;
+    max-width: 100%;
+  }
+}
+
+/* DEFINITIVE HEADLINE CLIPPING & RESIZE FIX */
+
+/* 1. Force the headline box open so descenders (g, q) never get cut off */
+.hero h1 {
+  line-height: 1.15 !important; /* Bumps it from .92 so text has native breathing room */
+  letter-spacing: -0.03em;
+}
+
+/* 2. Overhaul the animation containers to protect the bottom of the letters */
+.split {
+  display: inline-block !important;
+  overflow: hidden !important;
+  vertical-align: bottom !important; /* Perfectly aligns the two side-by-side blocks on line 2 */
+  padding-bottom: 0.25em !important; /* Creates a generous, un-clippable basement for tails */
+  margin-bottom: -0.25em !important; /* Pulls the next line back up so layout stays tight */
+}
+
+/* 3. Ensure the inner animating text plays nice with the new spacing */
+.split span {
+  display: inline-block !important;
+  vertical-align: bottom !important;
+}
+
+/* 4. Smooth scaling for intermediate screens (Tablets / Small Laptops) */
+@media (max-width: 1100px) {
+  .wrap {
+    padding: 0 40px;
+  }
+  .hero h1 {
+    font-size: clamp(52px, 8.5vw, 95px);
+    line-height: 1.1 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero h1 {
+    font-size: clamp(40px, 10vw, 72px);
+    line-height: 1.1 !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -187,10 +297,9 @@ footer a:hover{color:var(--rose);opacity:1}
     </div>
 
     <div class="stats-dark reveal">
-      <div class="s"><b>+74%</b><span>Foot traffic, year one</span></div>
-      <div class="s"><b>2 yrs</b><span>Of unprompted press</span></div>
-      <div class="s"><b>3</b><span>Generations involved</span></div>
-      <div class="s"><b>1</b><span>Beloved bakery, saved</span></div>
+      <div class="s"><b>24-Hours</b><span>Crisis response</span></div>
+      <div class="s"><b>90 days</b><span>Trust Recovery</span></div>
+      <div class="s"><b>1</b><span>Public Commitment</span></div>
     </div>
   </div>
 </section>
@@ -222,7 +331,7 @@ footer a:hover{color:var(--rose);opacity:1}
       <h2>Rebuilding trust in public.</h2>
     </div>
     <div class="chapter-body">
-      <div class="prose reveal d1">
+      <div class="prose reveal d1" style="max-width:900px;">
         <p>The instinct in a crisis is often to explain. Civic24 needed to demonstrate.</p>
         <p>Instead of relying on a single public apology, I designed a stakeholder-specific communication system that matched transparency to the audience receiving it.</p>
         <ul>
@@ -263,7 +372,7 @@ footer a:hover{color:var(--rose);opacity:1}
       <h2>The <em>Outcome.</em></h2>
     </div>
     <div class="chapter-body">
-      <div class="prose reveal d1">
+      <div class="prose reveal d1" style="max-width:900px;">
         <p>A structured crisis communication system designed to stabilize trust, align messaging across audiences, and guide perception recovery over time.</p>
       </div>
     </div>
@@ -294,7 +403,7 @@ footer a:hover{color:var(--rose);opacity:1}
         <ul>
           <li><span>Stakeholders</span><strong>Users · Media · NGOs · Government</strong></li>
           <li><span>Timeline</span><strong>24-Hour Response &amp; 90-Day Recovery</strong></li>
-          <li><span>Campaign</span><strong>TEvery Voice, Equal</strong></li>
+          <li><span>Campaign</span><strong>Every Voice, Equal</strong></li>
           <li><span>Focus</span><strong>Trust Recovery · Narrative Stabilization · Public Accountability</strong></li>
           <li><span>Core Deliverable</span><strong>A multi-channel trust recovery architecture</strong></li>
         </ul>
