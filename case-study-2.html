@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..800,0..100&family=Inter:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet" />
 <style>
-:root{--paper:#f8fafc;--paper-2:#ece2cd;--ink:#1f1c19;--ink-soft:#3a342e;--muted:#7a6f60;--rule:#cdbfa3;--maroon:#8a1e2b;--maroon-deep:#5e1019;--gold:#b8893c;--rose:#c98686;--shadow:0 30px 60px -30px rgba(60,30,15,.35),0 8px 20px -10px rgba(60,30,15,.18)}
+:root{--paper:#f8fafc;--paper-2:#ece2cd;--ink:#1f1c19;--ink-soft:#3a342e;--muted:#7a6f60;--rule:#cdbfa3;--maroon:#7f011f;--maroon-deep:#5e1019;--gold:#b8893c;--rose:#fbd9e5;--shadow:0 30px 60px -30px rgba(60,30,15,.35),0 8px 20px -10px rgba(60,30,15,.18)}
 *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;background-image:radial-gradient(rgba(80,55,30,.05) 1px,transparent 1px),radial-gradient(rgba(80,55,30,.04) 1px,transparent 1px);background-size:3px 3px,7px 7px;background-position:0 0,1px 2px}
 ::selection{background:var(--maroon);color:var(--paper)}
@@ -28,30 +28,6 @@ h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.0
 .nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--maroon);transform:scaleX(0);transform-origin:right;transition:transform .35s ease}
 .nav a:hover{color:var(--maroon)}.nav a:hover::after{transform:scaleX(1);transform-origin:left}
 @media (max-width:640px){.nav ul{gap:14px}.nav a{font-size:11px;letter-spacing:.12em}}
-
-/* RHYTHM VARIANT — poster-led, dark hero, two-column body */
-.poster-hero{
-  background:var(--ink);color:var(--paper);padding:80px 0 96px;position:relative;overflow:hidden;
-}
-.poster-hero::before{
-  content:"";position:absolute;inset:0;background:
-    repeating-linear-gradient(0deg, rgba(184,137,60,.05) 0, rgba(184,137,60,.05) 1px, transparent 1px, transparent 6px);
-  pointer-events:none;
-}
-.crumb-dark{display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--paper);border-bottom:1px solid var(--paper);padding:14px 0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper);opacity:.85}
-.crumb-dark a{transition:color .3s ease}.crumb-dark a:hover{color:var(--gold)}
-.poster-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center;margin-top:60px}
-.poster-grid h1{color:var(--paper);font-size:clamp(56px,8.5vw,130px);letter-spacing:-.04em;font-weight:300;line-height:.92}
-.poster-grid h1 em{color:var(--gold);font-style:italic}
-.poster-grid .lede{font-family:"Fraunces",serif;font-size:clamp(20px,2vw,26px);line-height:1.4;color:var(--paper);opacity:.85;margin-top:32px;max-width:42ch;font-weight:300}
-.poster-grid .lede em{color:var(--gold);font-style:italic}
-.poster-grid .kicker{font-family:"Fraunces",serif;font-style:italic;color:var(--gold);font-size:22px;margin-bottom:18px}
-.poster-grid .byline{display:flex;flex-wrap:wrap;gap:24px;margin-top:32px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);opacity:.8}
-.poster-grid .byline strong{display:block;color:var(--gold);font-weight:600;font-size:11px;letter-spacing:.22em;margin-bottom:4px}
-.poster{aspect-ratio:3/4;background:#0d0b0a;border:1px solid rgba(241,232,214,.2);position:relative;overflow:hidden;box-shadow:0 40px 80px -30px rgba(0,0,0,.6);transform:rotate(-1.5deg);transition:transform .6s ease}
-.poster:hover{transform:rotate(0deg)}
-.poster .stamp{position:absolute;top:18px;left:18px;width:84px;height:84px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Fraunces",serif;font-size:11px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;transform:rotate(-8deg)}
-@media (max-width:900px){.poster-grid{grid-template-columns:1fr;gap:40px}.poster{transform:none}}
 
 /* stats inside dark hero */
 .stats-dark{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:48px 0 0;margin-top:48px;border-top:1px solid rgba(241,232,214,.18)}
@@ -139,6 +115,116 @@ footer a:hover{color:var(--rose);opacity:1}
 @keyframes turn{0%{transform:scaleX(1)}60%{transform:scaleX(1)}100%{transform:scaleX(0)}}
 .progress{position:fixed;top:0;left:0;height:3px;background:var(--gold);width:0;z-index:100;transition:width .1s linear}
 .note{font-family:"Caveat",cursive;color:var(--maroon);font-size:22px}
+
+/* --- MOBILE REFINEMENTS & BREATHING ROOM OVERRIDES---- */
+
+@media (max-width: 640px) {
+  /* 1. Increase edge safety margins slightly */
+  .wrap {
+    padding: 0 24px;
+  }
+
+  /* 2. Fix Navigation Jam (Gracefully stack logo and links) */
+  .nav-inner {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 0;
+    text-align: center;
+  }
+  .nav ul {
+    gap: 18px;
+    justify-content: center;
+  }
+
+  /* 3. Fix Headline Squeeze (Drop font floor so text doesn't burst out) */
+  .hero h1 {
+    font-size: clamp(38px, 12vw, 58px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+
+  /* Adjust line heights for the split-text animation blocks on mobile */
+  .hero h1 br {
+    display: block;
+    content: "";
+    margin-top: 4px;
+  }
+
+  /* 4. Fix Case Stats Grid (Stack them cleanly so labels don't crush) */
+  .case-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px 0;
+  }
+  
+  /* Add a elegant editorial separator between stats since they now stack */
+  .case-stats .s {
+    border-bottom: 1px dashed var(--rule);
+    padding-bottom: 14px;
+  }
+  .case-stats .s:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .case-stats .s b {
+    font-size: 28px;
+    margin-bottom: 2px;
+  }
+
+  /* 5. Clean up spacing around case visuals */
+  .case-visual {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Ensure the intro text has strong readability when full-width */
+  .hero-lede {
+    font-size: 21px;
+    max-width: 100%;
+  }
+}
+
+/* DEFINITIVE HEADLINE CLIPPING & RESIZE FIX */
+
+/* 1. Force the headline box open so descenders (g, q) never get cut off */
+.hero h1 {
+  line-height: 1.15 !important; /* Bumps it from .92 so text has native breathing room */
+  letter-spacing: -0.03em;
+}
+
+/* 2. Overhaul the animation containers to protect the bottom of the letters */
+.split {
+  display: inline-block !important;
+  overflow: hidden !important;
+  vertical-align: bottom !important; /* Perfectly aligns the two side-by-side blocks on line 2 */
+  padding-bottom: 0.25em !important; /* Creates a generous, un-clippable basement for tails */
+  margin-bottom: -0.25em !important; /* Pulls the next line back up so layout stays tight */
+}
+
+/* 3. Ensure the inner animating text plays nice with the new spacing */
+.split span {
+  display: inline-block !important;
+  vertical-align: bottom !important;
+}
+
+/* 4. Smooth scaling for intermediate screens (Tablets / Small Laptops) */
+@media (max-width: 1100px) {
+  .wrap {
+    padding: 0 40px;
+  }
+  .hero h1 {
+    font-size: clamp(52px, 8.5vw, 95px);
+    line-height: 1.1 !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero h1 {
+    font-size: clamp(40px, 10vw, 72px);
+    line-height: 1.1 !important;
+  }
+}  
 </style>
 </head>
 <body>
@@ -177,9 +263,6 @@ footer a:hover{color:var(--rose);opacity:1}
           <div><strong>Scope</strong>Community-Led Growth System</div>
           <div><strong>Timeframe</strong>12 weeks</div>
         </div>
-      </div>
-      <div class="poster reveal d2" id="poster">
-        <span class="stamp">Case<br/>No. 02</span>
       </div>
     </div>
 
