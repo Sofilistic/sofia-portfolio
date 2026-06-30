@@ -79,6 +79,13 @@ h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.0
 .spread .panel{aspect-ratio:4/5;border:1px solid var(--rule);background:var(--paper-2);position:relative;overflow:hidden;box-shadow:var(--shadow)}
 .spread .panel .cap{position:absolute;left:14px;bottom:14px;background:var(--paper);padding:6px 10px;font-size:10px;letter-spacing:.18em;color:var(--ink);border:1px solid var(--ink)}
 @media (max-width:760px){.spread{grid-template-columns:1fr}}
+/* Add this to your existing CSS */
+.spread .panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills the area without stretching */
+  display: block;
+}
 
 /* full-bleed pull */
 .pull{margin:48px 0;padding:56px 32px;background:var(--ink);color:var(--paper);text-align:center;position:relative;overflow:hidden}
@@ -365,6 +372,14 @@ footer a:hover{color:var(--rose);opacity:1}
           <li>Finishing a manicure</li>
         </ul>
       </div>
+      <div class="spread">
+  <div class="panel">
+    <img src="ad-one.png" alt="Ad creative">
+    </div>
+  <div class="panel">
+    <img src="ad-two.png" alt="Ad creativee">
+  </div>
+</div>
     </div>
   </div>
 </section>
