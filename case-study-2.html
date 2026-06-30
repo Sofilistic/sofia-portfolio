@@ -80,7 +80,7 @@ h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.0
 .tour-head{text-align:center;margin-bottom:48px}
 .tour-head h3{font-size:clamp(36px,5vw,64px);font-weight:400;letter-spacing:-.025em}
 .tour-head h3 em{font-style:italic;color:var(--maroon)}
-.tour-grid{display:grid;grid-template-columns: repeat(5,1fr);gap:0;border:1px solid var(--ink)}
+.tour-grid{display:grid;grid-template-columns: repeat(5,1fr);gap:0;border-top:1px solid var(--ink);border-left: 1px solid var(--ink);}
 .tour-grid .city{
   border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);
   padding:28px 22px;background:var(--paper);position:relative;
@@ -88,10 +88,8 @@ h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.0
 }
 .tour-grid .city:hover{background:var(--gold);color:var(--paper)}
 .tour-grid .city:hover .num{color:var(--ink)}
-.tour-grid .city:nth-child(4n){border-right:0}
-.tour-grid .city:nth-last-child(-n+4){border-bottom:0}
 .tour-grid .city:first-child {
-  border-right: none !important;
+  border-right: none;
 }
 .tour-grid .city .num{font-family:"Fraunces",serif;font-style:italic;color:var(--maroon);font-size:14px;transition:color .3s ease}
 .tour-grid .city h4{font-family:"Fraunces",serif;font-size:24px;font-weight:500;margin:8px 0 4px}
