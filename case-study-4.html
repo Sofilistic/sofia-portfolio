@@ -51,11 +51,12 @@ h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.0
     width:100%;
     height:100%;
     object-fit:cover;
+    object-position:center;
     display:block;
 }
 .collage .ph1{top:0;left:8%;width:48%;aspect-ratio:4/5;transform:rotate(-5deg)}
 .collage .ph2{top:120px;right:0;width:46%;aspect-ratio:4/5;transform:rotate(4deg)}
-.collage .ph3{bottom:0;left:18%;width:48%;aspect-ratio:1/1;transform:rotate(-2deg)}
+.collage .ph3{bottom:0;left:18%;width:60%;aspect-ratio:1/1;transform:rotate(-2deg)}
 @media (max-width:900px){.scrap-grid{grid-template-columns:1fr;gap:40px}.collage{height:480px;margin-top:20px}}
 
 .stats-dark{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:48px 0 0;margin-top:64px;border-top:1px solid rgba(241,232,214,.25)}
@@ -72,6 +73,9 @@ h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.0
 .chapter-head h2 em{font-style:italic;color:var(--maroon);font-weight:300}
 .chapter-body{display:grid;grid-template-columns:1fr 2fr;gap:60px;align-items:start}
 .chapter-body .meta-col{font-size:13px;color:var(--muted);line-height:1.7}
+.chapter-body.single-column .prose{
+    max-width:none;
+}
 .chapter-body .meta-col strong{display:block;color:var(--ink);font-weight:600;font-size:11px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:6px}
 .prose p{font-size:19px;line-height:1.7;color:var(--ink-soft);margin-bottom:22px}
 .prose p.first::first-letter{font-family:"Fraunces",serif;font-size:74px;float:left;line-height:.85;padding:6px 12px 0 0;color:var(--maroon);font-weight:500}
@@ -329,8 +333,8 @@ footer a:hover{color:var(--rose);opacity:1}
       <div class="num"><small>Chapter II</small></div>
       <h2>Rebuilding trust in public.</h2>
     </div>
-    <div class="chapter-body">
-      <div class="prose reveal d1" style="max-width:900px;">
+    <div class="chapter-body single-column">
+      <div class="prose reveal d1">
         <p>The instinct in a crisis is often to explain. Civic24 needed to demonstrate.</p>
         <p>Instead of relying on a single public apology, I designed a stakeholder-specific communication system that matched transparency to the audience receiving it.</p>
         <ul>
@@ -370,8 +374,8 @@ footer a:hover{color:var(--rose);opacity:1}
       <div class="num"><small>Chapter III</small></div>
       <h2>The <em>Outcome.</em></h2>
     </div>
-    <div class="chapter-body">
-      <div class="prose reveal d1" style="max-width:900px;">
+    <div class="chapter-body single-column">
+      <div class="prose reveal d1">
         <p>A structured crisis communication system designed to stabilize trust, align messaging across audiences, and guide perception recovery over time.</p>
       </div>
     </div>
